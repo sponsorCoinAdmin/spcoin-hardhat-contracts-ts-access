@@ -48,7 +48,7 @@ Read all copyright clauses and information before continuing to download and/or 
  - - - -
 ### Installation Details<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/installation.png" width="7%" align= "right">
 - Please Note: For a comprehensive demonstration of the installation process, refer to the 'Video Tutorial' section below.
-- Clone the package to your local computer:
+- Clone the package to your local computer:/[<b>git clone ssh example:</b>](git clone git@github.com:sponsorCoinAdmin/spcoin-contracts-js-access.git)
 - Change your current directory to {root installaction}/[<b>spcoin-contracts-js-access</b>](https://github.com/sponsorCoinAdmin/spcoin-contracts-js-access/tree/main)
 - Next install the text menu driven system as follows:
     - execute the following command: <b>'. ./[<b>spCoinEnvSetup.sh</b>'](https://github.com/sponsorCoinAdmin/spCoinSetupEnv/blob/main/spCoinEnvSetup.sh)</b>
