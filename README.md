@@ -62,6 +62,14 @@ Read all copyright clauses and information before continuing to download and/or 
 - For example, an Infura key entry would look look like:
   - <b>NFURA_API_MAIN_NET_ACCESS_KEY="<Your Infura Key Here></b>"
 - Further environment settings exist in the file <b>/spcoin-contracts-js-access/env/.e</b>.
+
+- ### Remix Environment setup<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/setup6.png" width="7%" align= "right">
+- Remix is a browser based Solidity contract ide required to edit test and/or deploy contracts to a specified network.
+- In the browser of your choice, enter the URL <b>https://remix.ethereum.org/</b>
+- Videos are available as a tutorial starter on this site.
+- Change directory to the project directory <b>spcoin-contracts-js-access</b> and start the source workspace server by typing <b>remixd</b>
+- In the Remix page on the browser select <b>File Explorer</b> and open <b>Local File System</b> the directory should be loaded.
+
  - - - - 
 ### Command Menu Shortcuts<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/menu 4.jpg" width="7%" align= "right">
 The <b>All Command Menus</b> are a list of shortcut alias commands for administering the [<b>'spcoin-contracts-js-access'</b>](https://github.com/sponsorCoinAdmin/spcoin-contracts-js-access/tree/main) project.
