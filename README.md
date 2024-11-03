@@ -1,88 +1,5 @@
 # spcoin-contracts-js-access
 
-// TESTING
-
-// VISUAL STUDIO CODE INSTALL PLUGIN
-Nomic Foundation
-
-// INSTALLING HARDHAT
-npm install --save-dev hardhat
-
-//REQUIRED SUPPORT PACKAGES
-"@nomicfoundation/hardhat-toolbox": "^2.0.1"
-npm install --save-dev @nomicfoundation/hardhat-toolbox  @nomiclabs/hardhat-ethers 'ethers@^5.0.0'
-
-Add the following code snippet at the top of your hardhat.config.js file
-require("@nomicfoundation/hardhat-toolbox");
-
-npm audit fix --force
-
-// IMPORTANT HARDHAT GLOBAL COMMANDS
-npx hardhat help
-
-dataStructureModel Inheritance Level
-SPCoin
-  Token
-      Staking Manager
-        Transactions
-          AgentRates
-            Agent
-              RecipientRates
-                Recipient
-                  Account
-
-
-
-To Add a Recipient Account Agent, add the following:
-Add a Rate Record to Agent
-
-Using: addAgents(Recipient, SponsroRate, [Agent])
-Example: addAgents(2, 10, [6]); 
-
-Add a Rate Record to Recipient
-================================================
-Create:  AddRecipientRate(Account, Recipient, RecipientRatePercent);
-Example: AddRecipientRate(1, 2, 10);
-
-Add a Rate Record to Recipient
-================================================
-Create: AddAgentRate(Account, Recipient, Agent, RecipientRatePercent, AgentRatePercent);
-Example: AddAgentRate(1, 2, 6, 10, 10);
-
-Add a Recipient Transaction
-================================================
-Create AddRecipientTransaction(Account, Recipient, RecipientRate, amount);
-Example: AddRecipientTransaction(1, 2, 10, 123.1230);
-
-Add an Agent Transaction
-================================================
-Create addSponsorship(Recipient, RecipientRate, Agent, AgentRate, Amount)
-Example: AddAgentRate(1, 2, 6, 10, 10, 123.1230);
-
-
-Requirements to Delete Agent: Agent Affiliation Program
-1. Require Agent to be child of Recipient
-2. Require Agent to have No RecipientCoin balanceOf Token affiliation with Parent.
-3. Must Remove from parent Recipient.agentAccountList
-4. Then Remove Recipient Parent from agentAccount.agentParentRecipientAccountList
-5. Optional, If Agent account balanceOf is zero (0), Agent account may be deleted.
-
-Requirements to Delete Recipient from Sponsor: (Delete Sponsor recipientship)
-1. Require Recipient to be Child of Sponsor
-2. Require Recipient to have no Parent Patrion balanceOf Token affiliation.
-3. Require Recipient to have no Child Agent affiliation
-4. Remove associated child agents from Recipient.agentAccountList
-5. Remove from Account ParentKeys, account.recipientAccountList
-6. Remove from Account.recipientMap, 
-7. Optional, If Recipient account balanceOf is zero (0), Recipient account may be deleted.
-
-Requirements to Delete Account
-1. Require Account to have No Recipient, account.recipientAccountList must be zero (0).
-2. Require Account to have No Agent, account.agentAccountList must be zero (0).
-3. Optional, Require Account to have No Sponsors account.sponsorAccountList must be zero (0).
-4. Optional, Require Account to have No account.agentParentRecipientAccountList must be zero (0).
-
-
 # ToDo spcoin-contracts-js-access  *** Add the Following Structures to this README.md File 
 ---
 ### Directory of Information
@@ -169,14 +86,90 @@ The <b>All Command Menus</b> are a list of shortcut alias commands for administe
 ![<b>Author Image</b>](https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/mainMenu.jpg)
 The above menu is simply a menu of many submenus. Each entry is an alias to an alternate command menu short cut. Each submenu exists under the repositories’ spcoin-contracts-js-access/env directory. These menus cane be more completely described in the file [<b>./setupEnv/ReadMe.md</b>](https://github.com/sponsorCoinAdmin/spCoinSetupEnv/blob/main/README.md).
  - - - -
-### Running the Package<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/running2.png" width="6%" align= "right">
+### Testing The Contract with NodeJS and HardHat <img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/running2.png" width="6%" align= "right">
 
-It is recommended to read the contents of the scripts to be assured of the installation process and what will be installed. There may not be an associated uninstalling script, so uninstalling is the owner’s responsibility.
-- Validate the .env file was added to the package directory [<b>/spcoin-contracts-js-access</b>](https://github.com/sponsorCoinAdmin/spcoin-contracts-js-access/tree/main).<BR>This adds the required network access keys.
-After a new Linux/gitBash successful installation you can start the program directly in two ways as follows:
-1. cd into the Package [<b>/spcoin-contracts-js-access</b>](https://github.com/sponsorCoinAdmin/spcoin-contracts-js-access/tree/main) and execute the command <b>'npm start'</b>.
-2. Running the test menu display, <b>'tm'</b>, command will list the testing options.
-   Running the alias menu command <b>'hhtest'</b> will start the [<b>spcoin-contracts-js-access</b>](https://github.com/sponsorCoinAdmin/spcoin-contracts-js-access/tree/main) package test.
+// TESTING
+
+// VISUAL STUDIO CODE INSTALL PLUGIN
+Nomic Foundation
+
+// INSTALLING HARDHAT
+npm install --save-dev hardhat
+
+//REQUIRED SUPPORT PACKAGES
+"@nomicfoundation/hardhat-toolbox": "^2.0.1"
+npm install --save-dev @nomicfoundation/hardhat-toolbox  @nomiclabs/hardhat-ethers 'ethers@^5.0.0'
+
+Add the following code snippet at the top of your hardhat.config.js file
+require("@nomicfoundation/hardhat-toolbox");
+
+npm audit fix --force
+
+// IMPORTANT HARDHAT GLOBAL COMMANDS
+npx hardhat help
+
+dataStructureModel Inheritance Level
+SPCoin
+  Token
+      Staking Manager
+        Transactions
+          AgentRates
+            Agent
+              RecipientRates
+                Recipient
+                  Account
+
+
+
+To Add a Recipient Account Agent, add the following:
+Add a Rate Record to Agent
+
+Using: addAgents(Recipient, SponsroRate, [Agent])
+Example: addAgents(2, 10, [6]); 
+
+Add a Rate Record to Recipient
+================================================
+Create:  AddRecipientRate(Account, Recipient, RecipientRatePercent);
+Example: AddRecipientRate(1, 2, 10);
+
+Add a Rate Record to Recipient
+================================================
+Create: AddAgentRate(Account, Recipient, Agent, RecipientRatePercent, AgentRatePercent);
+Example: AddAgentRate(1, 2, 6, 10, 10);
+
+Add a Recipient Transaction
+================================================
+Create AddRecipientTransaction(Account, Recipient, RecipientRate, amount);
+Example: AddRecipientTransaction(1, 2, 10, 123.1230);
+
+Add an Agent Transaction
+================================================
+Create addSponsorship(Recipient, RecipientRate, Agent, AgentRate, Amount)
+Example: AddAgentRate(1, 2, 6, 10, 10, 123.1230);
+
+
+Requirements to Delete Agent: Agent Affiliation Program
+1. Require Agent to be child of Recipient
+2. Require Agent to have No RecipientCoin balanceOf Token affiliation with Parent.
+3. Must Remove from parent Recipient.agentAccountList
+4. Then Remove Recipient Parent from agentAccount.agentParentRecipientAccountList
+5. Optional, If Agent account balanceOf is zero (0), Agent account may be deleted.
+
+Requirements to Delete Recipient from Sponsor: (Delete Sponsor recipientship)
+1. Require Recipient to be Child of Sponsor
+2. Require Recipient to have no Parent Patrion balanceOf Token affiliation.
+3. Require Recipient to have no Child Agent affiliation
+4. Remove associated child agents from Recipient.agentAccountList
+5. Remove from Account ParentKeys, account.recipientAccountList
+6. Remove from Account.recipientMap, 
+7. Optional, If Recipient account balanceOf is zero (0), Recipient account may be deleted.
+
+Requirements to Delete Account
+1. Require Account to have No Recipient, account.recipientAccountList must be zero (0).
+2. Require Account to have No Agent, account.agentAccountList must be zero (0).
+3. Optional, Require Account to have No Sponsors account.sponsorAccountList must be zero (0).
+4. Optional, Require Account to have No account.agentParentRecipientAccountList must be zero (0).
+
  - - - -
 ### Video Tutorial<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/video.png" width="5%" align= "right">
 - Comprehensive Video Tutorial Currently Under Construction. Resource will be posted as soon as it is ready for publication.
