@@ -1,6 +1,5 @@
 # spcoin-contracts-js-access
 
-# ToDo spcoin-contracts-js-access  *** Add the Following Structures to this README.md File 
 ---
 ### Directory of Information
 Find your way using the directory below:
@@ -86,7 +85,7 @@ The <b>All Command Menus</b> are a list of shortcut alias commands for administe
 ![<b>Author Image</b>](https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/mainMenu.jpg)
 The above menu is simply a menu of many submenus. Each entry is an alias to an alternate command menu short cut. Each submenu exists under the repositories’ spcoin-contracts-js-access/env directory. These menus cane be more completely described in the file [<b>./setupEnv/ReadMe.md</b>](https://github.com/sponsorCoinAdmin/spCoinSetupEnv/blob/main/README.md).
  - - - -
-### Testing The Contract with NodeJS and HardHat <img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/running2.png" width="6%" align= "right">
+### Running the Contract tests through HardHat using NodeJS <img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/running2.png" width="6%" align= "right">
 
 // TESTING
 
