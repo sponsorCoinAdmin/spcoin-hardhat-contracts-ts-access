@@ -63,7 +63,7 @@ Read all copyright clauses and information before continuing to download and/or 
   - <b>NFURA_API_MAIN_NET_ACCESS_KEY="<Your Infura Key Here></b>"
 - Further environment settings exist in the file <b>/spcoin-contracts-js-access/env/.e</b>.
 
-- ### Remix Environment setup<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/setup6.png" width="7%" align= "right">
+### Remix Website IDE setup<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/setup6.png" width="7%" align= "right">
 - Remix is a browser based Solidity contract ide required to edit test and/or deploy contracts to a specified network.
 - In the browser of your choice, enter the URL <b>https://remix.ethereum.org/</b>
 - Videos are available as a tutorial starter on this site.
