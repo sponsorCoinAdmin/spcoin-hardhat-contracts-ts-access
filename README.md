@@ -55,7 +55,7 @@ Read all copyright clauses and information before continuing to download and/or 
 - <b>Notes:
     - This installation assumes operation under bash or gitBash for windows</b>
     - The Menu System modifies the ~/.gitbash.rc file to and an environment path link
-### Environment setup<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/setup6.png" width="7%" align= "right">
+### 1. Environment setup<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/setup6.png" width="7%" align= "right">
 - Setup for the simple swap test requires setting up environment .env file.
 - A sample configuration file <b>.env</b> exists in  project's home directory <b>/spcoin-contracts-js-access</b>.
 - This file, <b>".env"</b> requires you key to be added for network access.
@@ -63,14 +63,14 @@ Read all copyright clauses and information before continuing to download and/or 
   - <b>NFURA_API_MAIN_NET_ACCESS_KEY="<Your Infura Key Here></b>"
 - Further environment settings exist in the file <b>/spcoin-contracts-js-access/env/.e</b>.
 
-- ### HardHat setup<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/setup6.png" width="7%" align= "right">
+### 2. Hardhat localhost server setup.
 - HardHat is a network access server for implementing and testing contracts using Node and Solidity contracts.
 - It is recommended to use a linux based command window such as bash or git bash.
 - Videos are available as a tutorial starter on this site.
 - As of the release of this document node version 16 is required. If you need to migrate between node versions please install nvm at [htt](https://github.com/nvm-sh/nvm/blob/master/README.md).
 - Open up a bash window and start the server with the command <b>npx hardhat node</b>
 
-### Remix Website IDE setup<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/setup6.png" width="7%" align= "right">
+### 3. Remix Website IDE setup
 - Remix is a browser based Solidity contract ide required to edit test and/or deploy contracts to a specified network.
 - In the browser of your choice, enter the URL <b>https://remix.ethereum.org/</b>
 - Videos are available as a tutorial starter on this site.
