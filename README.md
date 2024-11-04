@@ -69,7 +69,7 @@ Read all copyright clauses and information before continuing to download and/or 
 - Videos are available as a tutorial starter on this site.
 - Change directory to the project directory <b>spcoin-contracts-js-access</b> and start the source workspace server by typing <b>remixd</b>
 - In the Remix page on the browser select <b>File Explorer</b> and open <b>Local File System</b> the directory should be loaded.
-- Start the HardHAt server with the command <b>npx hardhat node &<b> which should start up ad hardhat server endpoint at <b>http://127.0.0.1:8545</b>.
+- Start the HardHAt server with the command <b>npx hardhat node &</b> which should start up ad hardhat server endpoint at <b>http://127.0.0.1:8545</b>.
 
  - - - - 
 ### Command Menu Shortcuts<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/menu 4.jpg" width="7%" align= "right">
