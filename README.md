@@ -68,7 +68,7 @@ Read all copyright clauses and information before continuing to download and/or 
 - It is recommended to use a linux based command window such as bash or git bash.
 - Videos are available as a tutorial starter on this site.
 - As of the release of this document node version 16 is required. If you need to migrate between node versions please install nvm at <b>https://github.com/nvm-sh/nvm/blob/master/README.md</b>.
-- This release required node 16 find your version with the command <b>node -version</b> if that is not the current node version, type <b>"nvm use 16"</b> to change to that version. If required follow the nvm instructions to install the node version.
+- This release required node 16 find your version with the command <b>"node -version"</b> if that is not the current node version, type <b>"nvm use 16"</b> to change to that version. If required follow the nvm instructions to install the node version.
 - Open up a bash window and start the server with the command <b>npx hardhat node</b>
 
 ### 3. Remix Website IDE setup
