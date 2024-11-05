@@ -1,6 +1,6 @@
 # Requires git setup
 export SPONSOR_COIN_ROOT_DIR=$PWD
-export SPONSOR_COIN_DIR=dev-contracts-spcoin;
+export SPONSOR_COIN_DIR=spcoin-contracts-js-access
 export SPONSOR_COIN_DEV_DIR=spCoinEnvSetup;
 echo "DownLoading Sponsor Coin Development Envirement from gitHub"
 git clone git@github.com:sponsorCoinAdmin/$SPONSOR_COIN_DIR.git
