@@ -9,7 +9,7 @@ hhtest\.out
 node_modules
 .env
 .e
-.package-lock.json
+package-lock.json
 
 # Hardhat files
 cache
