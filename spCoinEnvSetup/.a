@@ -27,3 +27,4 @@ alias hhtest="reset;clear; npx hardhat test 2>&1 | tee ./test.out/hhtest.out"
 alias forkmainnet="npx hardhat node --fork https://mainnet.infura.io/v3/08b06e80980b4c1c9d9d450f4f71607d &"
 alias forkpolygon="npx hardhat node --fork https://polygon-mainnet.infura.io/v3/08b06e80980b4c1c9d9d450f4f71607d &"
 alias forksepolia="npx hardhat node --fork https://sepolia.infura.io/v3/08b06e80980b4c1c9d9d450f4f71607d &"
+
