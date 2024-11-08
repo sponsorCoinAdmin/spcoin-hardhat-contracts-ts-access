@@ -1,5 +1,5 @@
 export CURR_DIR=$PWD
-cd ..
+#cd ..
 
 #echo "Configuring SponsorCoin Environment"
 export PROJECT_HOME=$PWD
