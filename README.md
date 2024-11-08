@@ -7,7 +7,7 @@ Find your way using the directory below:
 - [Legal Disclaimer & Copyright Agreement ©](#copyright-agreement)
 - [Repository](#repository-information)
 - [About](#about)
-- [Installation](#about2)
+- [Installation](#installation)
 - [Environment Setup](#environment-setup)
 - [Package Contents](#package-contents)
 - [Command Menu Shortcuts](#command-menu-shortcuts)
