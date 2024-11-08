@@ -28,7 +28,7 @@ Read all copyright clauses and information before continuing to download and/or 
 
 - This program is permissible for re-distribution provided this copyright/license header is present in any redistribution of this package, in partial or entirely.  
 - There exists no warranty or guaranty of any kind in any way and is not assured to be as required and may not work exactly as designed for all operating systems employing various potentially conflicting software programs and entities.  
-- It is recommended to read the contents of the scripts to be assured of the installation process and what will be installed. 
+- It is recommended to read the contents of the scripts to be assured of the  process and what will be installed. 
 - The user is free to modify the code as required. 
 - There may not be any associated uninstal script. Uninstalling any such software or its effects on any system is the system owners responsibility.
 - It is recommended to be installed on a test system in a test environment before promoting to a production environment.
