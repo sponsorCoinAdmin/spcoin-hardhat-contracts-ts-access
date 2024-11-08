@@ -8,7 +8,7 @@ Find your way using the directory below:
 - [Repository](#repository-information)
 - [About](#about)
 - [Installation](#installation)
-- [Environment Setup](#1.-environment)
+- [Environment Setup](#environment)
 - [Package Contents](#package-contents)
 - [Command Menu Shortcuts](#command-menu-shortcuts)
 - [Running the Package](#running-the-package)
