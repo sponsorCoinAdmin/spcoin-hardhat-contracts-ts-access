@@ -55,7 +55,7 @@ Read all copyright clauses and information before continuing to download and/or 
 - Change your current directory to {root installaction}/[<b>spcoin-contracts-js-access</b>](https://github.com/sponsorCoinAdmin/spcoin-contracts-js-access/tree/main)
 - Install the required node packages, <b>npm -install</b>
 - Next install the text menu driven system as follows:
-    - execute the following command: <b>'. ./[<b>spCoinEnvSetup.sh</b>'](https://github.com/sponsorCoinAdmin/spCoinSetupEnv/blob/main/spCoinEnvSetup.sh)</b>
+    - execute the following command: <b>'. ./scripts/spCoinEnvSetup.sh</b>'
 - <b>Notes:
     - This installation assumes operation under bash or gitBash for windows</b>
     - The Menu System modifies the ~/.gitbash.rc file to and an environment path link
