@@ -8,7 +8,6 @@ hhtest\.out
 /*.out
 node_modules
 .env
-.e
 package-lock.json
 
 # Hardhat files
