@@ -51,7 +51,7 @@ Read all copyright clauses and information before continuing to download and/or 
 
 ### Installation<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/installation.png" width="7%" align= "right">
 - Please Note: For a comprehensive demonstration of the installation process, refer to the 'Video Tutorial' section below.
-- In your installation directory, clone the package to your local computer: <b>Package [<b>spcoin-hardhat-contracts-js-access</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/tree/main) ©</b> 
+- In your installation directory, clone your local computer, the package: <b>[<b>spcoin-hardhat-contracts-js-access</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/tree/main) ©</b> 
 - Change your current directory to <b>/spcoin-hardhat-contracts-js-access</b>
 - Install the required node packages, <b>npm -install</b>
 - Next install the text menu driven system as follows:
