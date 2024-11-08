@@ -7,7 +7,7 @@ Find your way using the directory below:
 - [Legal Disclaimer & Copyright Agreement ©](#copyright-agreement)
 - [Repository](#repository-information)
 - [About](#about)
-- [Installation](#installation)
+- [Installation](#about2)
 - [Environment Setup](#environment-setup)
 - [Package Contents](#package-contents)
 - [Command Menu Shortcuts](#command-menu-shortcuts)
@@ -46,6 +46,9 @@ Read all copyright clauses and information before continuing to download and/or 
 - Purpose: [<b>spcoin-contracts-js-access</b>](https://github.com/sponsorCoinAdmin/spcoin-contracts-js-access/tree/main) is a WIP GUI front end package to demonstrate blockchain connectivity and transactions.
 - Description: [<b>spcoin-contracts-js-access</b>](https://github.com/sponsorCoinAdmin/spcoin-contracts-js-access/tree/main) package is a front end GUI package mimicking Uniswap's appearance and utilizing Uniswap’s SDK to perform price matching and trade transactions. 
  - - - -
+
+ ### About2<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/aboutMickey.png" width="6%" align= "right">
+
 ### Installation Details<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/installation.png" width="7%" align= "right">
 - Please Note: For a comprehensive demonstration of the installation process, refer to the 'Video Tutorial' section below.
 - Clone the package to your local computer:/[<b>git clone ssh example:</b>](git clone git@github.com:sponsorCoinAdmin/spcoin-contracts-js-access.git)
