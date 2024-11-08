@@ -8,7 +8,7 @@ Find your way using the directory below:
 - [Repository](#repository-information)
 - [About](#about)
 - [Installation](#installation)
-- [Environment Setup](#environment-setup)
+- [Environment Setup](#environment)
 - [Package Contents](#package-contents)
 - [Command Menu Shortcuts](#command-menu-shortcuts)
 - [Running the Package](#running-the-package)
@@ -56,7 +56,7 @@ Read all copyright clauses and information before continuing to download and/or 
 - <b>Notes:
     - This installation assumes operation under bash or gitBash for windows</b>
     - The Menu System modifies the ~/.gitbash.rc file to and an environment path link
-### 1. Environment setup<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/setup6.png" width="7%" align= "right">
+### 1. Environment<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/setup6.png" width="7%" align= "right">
 - Now we will setup the menu alises for running the project through hardhat.
 - From a linux command windrow, run the menu script <b>. ./scripts/spCoinEnvSetup.sh</b> from the projects home directory <b>spcoin-contracts-js-access</b>.
 - Typing <b>m</b> will display a list of menu shortcut alias commands.
