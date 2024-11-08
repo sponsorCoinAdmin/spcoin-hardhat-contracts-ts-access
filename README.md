@@ -69,7 +69,7 @@ Read all copyright clauses and information before continuing to download and/or 
   - <b>NFURA_API_MAIN_NET_ACCESS_KEY="<Your Infura Key Here></b>"
 - Further environment settings exist in the file <b>/spcoin-contracts-js-access/env/.e</b>.
 
-### Hardhat localhost Server Setup
+#### Hardhat localhost Server Setup
 - HardHat is a network access server for implementing and testing contracts using Node and Solidity contracts.
 - It is recommended to use a linux based command window such as bash or git bash.
 - Videos are available as a tutorial starter on this site.
@@ -77,7 +77,7 @@ Read all copyright clauses and information before continuing to download and/or 
 - This release required node 16 find your version with the command <b>"node -version"</b> if that is not the current node version, type <b>"nvm use 16"</b> to change to that version. If required follow the nvm instructions to install the node version.
 - Open up a bash window and start the server with the command <b>npx hardhat node</b>
 
-### Remix Website IDE Setup
+#### Remix Website IDE Setup
 - Remix is a browser based Solidity contract ide required to edit test and/or deploy contracts to a specified network.
 - In the browser of your choice, enter the URL <b>https://remix.ethereum.org/</b>
 - Videos are available as a tutorial starter on this site.
