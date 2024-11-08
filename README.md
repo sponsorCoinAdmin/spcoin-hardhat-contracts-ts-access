@@ -55,7 +55,7 @@ Read all copyright clauses and information before continuing to download and/or 
 - Change your current directory to <b>/spcoin-hardhat-contracts-js-access</b>
 - Install the required node packages, <b>npm -install</b>
 - Next install the text menu driven system as follows:
-    - execute the following command: <b>'. ./scripts/spCoinEnvSetup.sh</b>'
+    - execute the following command: <b>'. ./scripts/setupEnvAlises.sh</b>'
 - <b>Notes:
     - This installation assumes operation under bash or gitBash for windows</b>
     - The Menu System modifies the ~/.gitbash.rc file to and an environment path link
