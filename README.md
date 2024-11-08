@@ -6,7 +6,7 @@ Find your way using the directory below:
 <b>
 - [Legal Disclaimer & Copyright Agreement ©](#copyright-agreement)
 - [Repository](#repository-information)
-- [About](#about)
+- [About](#about2)
 - [Installation](#installation)
 - [Environment Setup](#environment-setup)
 - [Package Contents](#package-contents)
