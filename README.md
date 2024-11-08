@@ -9,7 +9,7 @@ Find your way using the directory below:
 - [About](#about)
 - [Installation](#installation)
 - [Hardhat localhost Server Setup](#hardhat-localhost-server-setup)
-- [Remix Website IDE Setup](#remix-website-ide-setup}
+- [Remix Website IDE Setup](#remix-website-ide-setup)
 - [Environment Setup](#environment-setup)
 - [Package Contents](#package-contents)
 - [Command Menu Shortcuts](#command-menu-shortcuts)
