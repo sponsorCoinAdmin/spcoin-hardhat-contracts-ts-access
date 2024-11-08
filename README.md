@@ -56,7 +56,9 @@ Read all copyright clauses and information before continuing to download and/or 
     - This installation assumes operation under bash or gitBash for windows</b>
     - The Menu System modifies the ~/.gitbash.rc file to and an environment path link
 ### 1. Environment setup<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/setup6.png" width="7%" align= "right">
-- Setup for the simple swap test requires setting up environment .env file.
+- Now we will setup the menu alises for running the project through hardhat.
+- From a linux command windrow, run the menu script <b>. ./scripts/spCoinEnvSetup.sh</b> from the projects home directory <b>spcoin-contracts-js-access</b>.
+- Typing <b>m</b> will display a list of menu shortcut alias commands.
 - A sample configuration file <b>.env</b> exists in  project's home directory <b>/spcoin-contracts-js-access</b>.
 - This file, <b>".env"</b> requires you key to be added for network access.
 - For example, an Infura key entry would look look like:
