@@ -4,14 +4,22 @@ require("dotenv").config();
 
 module.exports = {
   solidity: {
-    version:  "0.8.18",
-    settings: {
-      optimizer: {
-        enabled: true,
-        runs: 2000,
-      }
-    }
-  },
+    compilers: [
+      {
+        version: "0.8.18",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 2000,
+          }
+        }
+      },
+      {
+        version: "0.4.18"
+      },
+    ],
+    // version:  "0.8.18",
+   },
   networks: {
     hardhat: {
       forking: {
