@@ -12,7 +12,7 @@ deployContract = async () => {
   let spCoinContract = await hre.ethers.getContractFactory("SPCoin");
   spCoinContractDeployed = await spCoinContract.deploy();
   await spCoinContractDeployed.deployed();
-  // console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+//  console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
   return spCoinContractDeployed;
 }
 
