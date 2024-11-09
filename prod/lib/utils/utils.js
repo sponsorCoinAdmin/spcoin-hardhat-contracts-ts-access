@@ -1,4 +1,4 @@
-dumpList = (_prefix, _arr) => {
+const dumpList = (_prefix, _arr) => {
     spCoinLogger.logFunctionHeader("dumpList = async(" + _prefix + ", _arr)");
     let maxCount = _arr.length;
 //   spCoinLogger.logDetail("JS => DUMPING " + maxCount + " RECORDS");
