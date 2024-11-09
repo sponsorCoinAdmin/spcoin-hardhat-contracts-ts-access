@@ -5,19 +5,25 @@ deploySpCoinContract = async () => {
   return spCoinContractDeployed;
 }
 
+deployWETH9Contract = async () => {
+  weth9ContractDeployed = await deployContract("WETH9");
+  return weth9ContractDeployed;
+}
+
 deployContract = async (symbol) => {
   //setLogMode(LOG_MODE.LOG_SETUP, true);
   // console.log("AAAA spCoinContractDeployed = await spCoinContract.deploy() AAAAAAAAAAAAAAAAAAAAAA");
 
-  let spCoinContract = await hre.ethers.getContractFactory(symbol);
-  spCoinContractDeployed = await spCoinContract.deploy();
-  await spCoinContractDeployed.deployed();
+  let contract = await hre.ethers.getContractFactory(symbol);
+  contractDeployed = await contract.deploy();
+  await contractDeployed.deployed();
 //  console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
-  return spCoinContractDeployed;
+  return contractDeployed;
 }
 
 module.exports = {
   deployContract,
   deploySpCoinContract,
+  deployWETH9Contract,
   spCoinContractDeployed
 }
