@@ -17,7 +17,7 @@ const LOG_MODE = {
     LOG_TREE : "LOG_TREE"
   }
 
-  setLogDefaults = (_log_mode, _state) => {
+const setLogDefaults = (_log_mode, _state) => {
     LOG = true;
     LOG_DETAIL = false;
     LOG_TEST_HEADER = false;

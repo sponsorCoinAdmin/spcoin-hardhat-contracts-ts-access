@@ -8,7 +8,7 @@ class HHAccountStruct {
      }
 };
 
-initHHAccounts = async ( ) => {
+const initHHAccounts = async ( ) => {
      signers = await ethers.getSigners();
      let hhTestAccountElements = new HHAccountStruct();
      let accounts = [];
