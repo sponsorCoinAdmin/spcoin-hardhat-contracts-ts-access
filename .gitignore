@@ -5,7 +5,7 @@
 hhtest.out
 hhtest\.out
 /hhtest*
-/*.out
+*/*.out
 node_modules
 .env
 package-lock.json
