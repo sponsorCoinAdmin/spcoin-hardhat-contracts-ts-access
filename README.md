@@ -11,7 +11,7 @@ Find your way using the directory below:
 - [Environment Setup](#environment-setup)
 - [Command Menu Shortcuts](#command-menu-shortcuts)
 - [Running Your First Test through the Menu](#running-your-first)
-- [Running Your First Test through the Menu](#hardhat-localhost-server-setup)
+- [Running Your First Test Through the Menu](#hardhat-localhost-server-setup-through-the-menu)
 - [Hardhat localhost Server Setup](#hardhat-localhost-server-setup)
 - [Remix Website IDE Setup](#remix-website-ide-setup)
 - [Package Contents](#package-contents)
