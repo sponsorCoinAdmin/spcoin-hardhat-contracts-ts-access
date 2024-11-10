@@ -91,22 +91,12 @@ The above menu is simply a menu of many submenus. Each entry is an alias to an a
 - Change directory to the project directory <b>spcoin-hardhat-contracts-js-access</b> and start the source workspace server by typing <b>remixd</b>
 - In the Remix page on the browser select <b>File Explorer</b> and open <b>Local File System</b> the directory should be loaded.
 - Start the HardHAt server with the command <b>npx hardhat node &</b> which should start up ad hardhat server endpoint at <b>http://127.0.0.1:8545</b>.
-
-
 - - - -
 ### Package Contents<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/contents.png" width="6%" align= "right">
 - [<b>README.md</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/edit/main/README.md) ~ The Readme Documentation is this documentation.
 - [<b>./scripts/spCoinSetup.sh</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/blob/main/scripts/spCoinSetup.sh)  ~ This file is to be run from the scripts directory and downloads the [<b>spcoin-hardhat-contracts-js-access</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/tree/main</b>) repository to local. Next it executes the [<b>spCoinEnvSetup.sh</b>](https://github.com/sponsorCoinAdmin/spCoinSetupEnv/blob/main/spCoinEnvSetup.sh) file for environment setup.
 - [<b>./setupEnv/</b>](https://github.com/sponsorCoinAdmin/spCoinSetupEnv/tree/ef96401c818432d0fe6ff1d6642fab31f44b6fb5) ~ This directory is a mounted submodule containing files for environment and menu execution commands. refer to the [<b>./setupEnv/ReadMe.md</b>](https://github.com/sponsorCoinAdmin/spCoinSetupEnv/blob/main/README.md) for a more complete Overview.
 - [<b>./setupEnv/spCoinEnvSetup.sh</b>](https://github.com/sponsorCoinAdmin/spCoinSetupEnv) ~ This shell creates the environment variable settings and sets up the menus for testing and execution commands in [<b>'spcoin-hardhat-contracts-js-access'</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/tree/main).
- - - - -
- ### Command Menu Shortcuts<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/menu 4.jpg" width="7%" align= "right">
-The <b>All Command Menus</b> are a list of shortcut alias commands for administering the [<b>'spcoin-hardhat-contracts-js-access'</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/tree/main) project.
-- If the menu system is installed correctly, simply type short cut alias <b>'m \<enter>'</b> in a bash window and the following should appear:
-- - - -
-#### The Main Menu
-![<b>Author Image</b>](https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/mainMenu.jpg)
-The above menu is simply a menu of many submenus. Each entry is an alias to an alternate command menu short cut. Each submenu exists under the repositories’ spcoin-hardhat-contracts-js-access/env directory. These menus cane be more completely described in the file [<b>./setupEnv/ReadMe.md</b>](https://github.com/sponsorCoinAdmin/spCoinSetupEnv/blob/main/README.md).
  - - - -
 ### Running the Contract tests through HardHat using NodeJS <img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/running2.png" width="6%" align= "right">
 
