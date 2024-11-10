@@ -10,6 +10,7 @@ Find your way using the directory below:
 - [Installation](#installation)
 - [Environment Setup](#environment-setup)
 - [Command Menu Shortcuts](#command-menu-shortcuts)
+- [Running Your First Test through the Menu](#running-your-first)
 - [Hardhat localhost Server Setup](#hardhat-localhost-server-setup)
 - [Remix Website IDE Setup](#remix-website-ide-setup)
 - [Package Contents](#package-contents)
@@ -79,9 +80,10 @@ The <b>All Command Menus</b> are a list of shortcut alias commands for administe
 ![<b>Author Image</b>](https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/mainMenu.jpg)
 The above menu is simply a menu of many submenus. Each entry is an alias to an alternate command menu short cut. Each submenu exists under the repositories’ spcoin-hardhat-contracts-js-access/env directory. These menus cane be more completely described in the file [<b>./setupEnv/ReadMe.md</b>](https://github.com/sponsorCoinAdmin/spCoinSetupEnv/blob/main/README.md).
 - - - - 
-#### Running Your First Test
+#### Running Your First Test through the Menu
 - After setting up the alises, run the command <b>hhtest</b>
-This command starts a hardhat server, deploys spCoin on the server, runs a test and dumps the output to directory file <b>"https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/test.out/hhtest.out"</b>
+- This command starts a hardhat server, deploys spCoin on the server, runs a test and dumps the output to directory file <b>"https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/test.out/hhtest.out"</b>
+- - - - 
 #### Hardhat localhost Server Setup
 - HardHat is a network access server for implementing and testing contracts using Javascript Node.
 - It is recommended to use a linux based command window such as bash or git bash.
