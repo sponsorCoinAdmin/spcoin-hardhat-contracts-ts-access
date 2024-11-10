@@ -57,15 +57,15 @@ Read all copyright clauses and information before continuing to download and/or 
 - Next install the text menu driven system as follows:
     - execute the following command: <b>'. ./scripts/setupEnvAlises.sh</b>'
 - <b>Notes:
-    - This installation assumes operation under bash or gitBash for windows</b>
-    - The Menu System modifies the ~/.gitbash.rc file to and an environment path link
+    - This installation assumes operation under command window bash or gitBash for windows</b>
+    - The Menu System modifies the ~/.bashrc file to add an environment path link
 
 ### Environment Setup<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/setup6.png" width="7%" align= "right">
-- Now we will setup the menu alises for running the project through hardhat.
-- From a linux command windrow, run the menu script <b>. ./scripts/spCoinEnvSetup.sh</b> from the projects home directory <b>spcoin-hardhat-contracts-js-access</b>.
+- Now we will setup the menu alises for testing the sponsorcoin project through hardhat.
+- From a linux command windrow, run the menu script <b>. ./scripts/setupEnvAlises.sh</b> from the projects home directory <b>spcoin-hardhat-contracts-js-access</b>.
 - Typing <b>m</b> will display a list of menu shortcut alias commands.
 - A sample configuration file <b>.env</b> exists in  project's home directory <b>/spcoin-hardhat-contracts-js-access</b>.
-- This file, <b>".env"</b> requires you key to be added for network access.
+- This file, <b>"[<b>,env</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/tree/main)"</b> requires you key to be added for network access.
 - For example, an Infura key entry would look look like:
   - <b>NFURA_API_MAIN_NET_ACCESS_KEY="<Your Infura Key Here></b>"
 - Further environment settings exist in the file <b>/spcoin-hardhat-contracts-js-access/env/.e</b>.
