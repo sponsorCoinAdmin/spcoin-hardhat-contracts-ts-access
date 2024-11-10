@@ -1,11 +1,11 @@
 */artifacts/
-/.contracts.OLD
+testout
 /.deps
 /.vscode/
 hhtest.out
 hhtest\.out
 /hhtest*
-*.out
+test.out/hhtest.out
 node_modules
 .env
 package-lock.json
