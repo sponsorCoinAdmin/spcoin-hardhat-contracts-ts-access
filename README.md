@@ -8,11 +8,11 @@ Find your way using the directory below:
 - [Repository](#repository-information)
 - [About](#about)
 - [Installation](#installation)
+- [Command Menu Shortcuts](#command-menu-shortcuts)
 - [Environment Setup](#environment-setup)
 - [Hardhat localhost Server Setup](#hardhat-localhost-server-setup)
 - [Remix Website IDE Setup](#remix-website-ide-setup)
 - [Package Contents](#package-contents)
-- [Command Menu Shortcuts](#command-menu-shortcuts)
 - [Running the Package](#running-the-package)
 - [Video Tutorial](#video-tutorial)
 - [About the Author](#about-the-author)
@@ -67,18 +67,21 @@ Read all copyright clauses and information before continuing to download and/or 
 - A sample configuration file <b>"[<b>.env</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/blob/main/.e/SAMPLE.env)"</b> exists in  project's home directory <b>/spcoin-hardhat-contracts-js-access/.e/SAMPLE.env</b>.
 - Create an account on <b>"[<b>ALCHEMY</b>](https://auth.alchemy.com/?redirectUrl=https%3A%2F%2Fdashboard.alchemy.com)"</b>. And get your free <b>ALCHEMY</b> Network access keys.
 - Create an account on <b>"[<b>INFURE</b>](https://app.infura.io/login)"</b>. And get your free <b>INFURA</b> Network access keys.
-- The above keys should be used to populate the .env environment file as follows.
-- This file, <b>"[<b>.env</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/blob/main/.e/SAMPLE.env)"</b> requires your keys from above to be added for block chain network access.
-- For example, an Infura key entry would look look like:
-  - <b>NFURA_API_MAIN_NET_ACCESS_KEY="<Your Infura Key Here></b>"
+- Copy the sample file <b>/spcoin-hardhat-contracts-js-access/.e/SAMPLE.env</b> to <b>/spcoin-hardhat-contracts-js-access/.env</b>.
+- This file, <b>"[<b>.env</b>]"</b> requires your keys from above to be added for block chain network access.
 - Further environment settings exist in the file <b>/spcoin-hardhat-contracts-js-access/env/.e</b>.
+ - - - - 
+### Command Menu Shortcuts<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/menu 4.jpg" width="7%" align= "right">
+The <b>All Command Menus</b> are a list of shortcut alias commands for administering the [<b>'spcoin-hardhat-contracts-js-access'</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/tree/main) project.
+- If the menu system is installed correctly, simply type short cut alias <b>'m \<enter>'</b> in a bash window and the following should appear:
+#### The Main Menu
+![<b>Author Image</b>](https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/mainMenu.jpg)
+The above menu is simply a menu of many submenus. Each entry is an alias to an alternate command menu short cut. Each submenu exists under the repositories’ spcoin-hardhat-contracts-js-access/env directory. These menus cane be more completely described in the file [<b>./setupEnv/ReadMe.md</b>](https://github.com/sponsorCoinAdmin/spCoinSetupEnv/blob/main/README.md).
 
 #### Hardhat localhost Server Setup
-- HardHat is a network access server for implementing and testing contracts using Node and Solidity contracts.
+- HardHat is a network access server for implementing and testing contracts using Javascript Node.
 - It is recommended to use a linux based command window such as bash or git bash.
-- Videos are available as a tutorial starter on this site.
-- As of the release of this document node version 16 is required. If you need to migrate between node versions please install nvm at <b>https://github.com/nvm-sh/nvm/blob/master/README.md</b>.
-- This release required node 16 find your version with the command <b>"node -version"</b> if that is not the current node version, type <b>"nvm use 16"</b> to change to that version. If required follow the nvm instructions to install the node version.
+- Videos are available as a tutorial starter on this site.<b> YET TO COME???</b>.
 - Open up a bash window and start the server with the command <b>npx hardhat node</b>
 
 #### Remix Website IDE Setup
@@ -89,13 +92,6 @@ Read all copyright clauses and information before continuing to download and/or 
 - In the Remix page on the browser select <b>File Explorer</b> and open <b>Local File System</b> the directory should be loaded.
 - Start the HardHAt server with the command <b>npx hardhat node &</b> which should start up ad hardhat server endpoint at <b>http://127.0.0.1:8545</b>.
 
- - - - - 
-### Command Menu Shortcuts<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/menu 4.jpg" width="7%" align= "right">
-The <b>All Command Menus</b> are a list of shortcut alias commands for administering the [<b>'spcoin-hardhat-contracts-js-access'</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/tree/main) project.
-- If the menu system is installed correctly, simply type short cut alias <b>'m \<enter>'</b> in a bash window and the following should appear:
-#### The Main Menu
-![<b>Author Image</b>](https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/mainMenu.jpg)
-The above menu is simply a menu of many submenus. Each entry is an alias to an alternate command menu short cut. Each submenu exists under the repositories’ spcoin-hardhat-contracts-js-access/env directory. These menus cane be more completely described in the file [<b>./setupEnv/ReadMe.md</b>](https://github.com/sponsorCoinAdmin/spCoinSetupEnv/blob/main/README.md).
 
 - - - -
 ### Package Contents<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/contents.png" width="6%" align= "right">
