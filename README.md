@@ -10,7 +10,7 @@ Find your way using the directory below:
 - [Installation](#installation)
 - [Environment Setup](#environment-setup)
 - [Command Menu Shortcuts](#command-menu-shortcuts)
-- [Running Your First Test through the Menu](#running-your-first-through-the-menu)
+- [Running Your First Test through the Menu](#running-your-first-test-through-the-menu)
 - [Running Your First Test Through the Menu](#hardhat-localhost-server-setup)
 - [Hardhat localhost Server Setup](#hardhat-localhost-server-setup)
 - [Remix Website IDE Setup](#remix-website-ide-setup)
