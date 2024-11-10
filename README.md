@@ -74,16 +74,20 @@ Read all copyright clauses and information before continuing to download and/or 
 ### Command Menu Shortcuts<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/menu 4.jpg" width="7%" align= "right">
 The <b>All Command Menus</b> are a list of shortcut alias commands for administering the [<b>'spcoin-hardhat-contracts-js-access'</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/tree/main) project.
 - If the menu system is installed correctly, simply type short cut alias <b>'m \<enter>'</b> in a bash window and the following should appear:
+- - - - 
 #### The Main Menu
 ![<b>Author Image</b>](https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/mainMenu.jpg)
 The above menu is simply a menu of many submenus. Each entry is an alias to an alternate command menu short cut. Each submenu exists under the repositories’ spcoin-hardhat-contracts-js-access/env directory. These menus cane be more completely described in the file [<b>./setupEnv/ReadMe.md</b>](https://github.com/sponsorCoinAdmin/spCoinSetupEnv/blob/main/README.md).
-
+- - - - 
+#### Running Your First Test
+- After setting up the alises, run the command <b>hhtest</b>
+This command starts a hardhat server, deploys spCoin on the server, runs a test and dumps the output to directory file <b>"https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/test.out/hhtest.out"</b>
 #### Hardhat localhost Server Setup
 - HardHat is a network access server for implementing and testing contracts using Javascript Node.
 - It is recommended to use a linux based command window such as bash or git bash.
 - Videos are available as a tutorial starter on this site.<b> YET TO COME???</b>.
 - Open up a bash window and start the server with the command <b>npx hardhat node</b>
-
+- - - - 
 #### Remix Website IDE Setup
 - Remix is a browser based Solidity contract ide required to edit test and/or deploy contracts to a specified network.
 - In the browser of your choice, enter the URL <b>https://remix.ethereum.org/</b>
@@ -130,7 +134,6 @@ SPCoin
               RecipientRates
                 Recipient
                   Account
-
 
 
 To Add a Recipient Account Agent, add the following:
