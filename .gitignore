@@ -1,17 +1,11 @@
 */artifacts/
-/.contracts.OLD
+node_modules
+test.out
 /.deps
 /.vscode/
-hhtest.out
-hhtest\.out
-/hhtest*
-*/*.out
-node_modules
 .env
 package-lock.json
 
-# Hardhat files
 cache
 artifacts
-.env
 
