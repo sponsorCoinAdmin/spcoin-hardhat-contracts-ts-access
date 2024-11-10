@@ -64,8 +64,11 @@ Read all copyright clauses and information before continuing to download and/or 
 - Now we will setup the menu alises for testing the sponsorcoin project through hardhat.
 - From a linux command windrow, run the menu script <b>. ./scripts/setupEnvAlises.sh</b> from the projects home directory <b>spcoin-hardhat-contracts-js-access</b>.
 - Typing <b>m</b> will display a list of menu shortcut alias commands.
-- A sample configuration file <b>"[<b>.env</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/blob/main/.e/SAMPLE.env)"</b> exists in  project's home directory <b>/spcoin-hardhat-contracts-js-access</b>.
-- This file, <b>"[<b>.env</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/blob/main/.e/SAMPLE.env)"</b> requires you key to be added for network access.
+- A sample configuration file <b>"[<b>.env</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/blob/main/.e/SAMPLE.env)"</b> exists in  project's home directory <b>/spcoin-hardhat-contracts-js-access/.e/SAMPLE.env</b>.
+- Create an account on <b>"[<b>ALCHEMY</b>](https://auth.alchemy.com/?redirectUrl=https%3A%2F%2Fdashboard.alchemy.com)"</b>. And get your free <b>ALCHEMY</b> Network access keys.
+- Create an account on <b>"[<b>INFURE</b>](https://app.infura.io/login)"</b>. And get your free <b>INFURA</b> Network access keys.
+- The above keys should be used to populate the .env environment file as follows.
+- This file, <b>"[<b>.env</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/blob/main/.e/SAMPLE.env)"</b> requires your keys from above to be added for block chain network access.
 - For example, an Infura key entry would look look like:
   - <b>NFURA_API_MAIN_NET_ACCESS_KEY="<Your Infura Key Here></b>"
 - Further environment settings exist in the file <b>/spcoin-hardhat-contracts-js-access/env/.e</b>.
