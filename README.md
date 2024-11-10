@@ -64,8 +64,8 @@ Read all copyright clauses and information before continuing to download and/or 
 - Now we will setup the menu alises for testing the sponsorcoin project through hardhat.
 - From a linux command windrow, run the menu script <b>. ./scripts/setupEnvAlises.sh</b> from the projects home directory <b>spcoin-hardhat-contracts-js-access</b>.
 - Typing <b>m</b> will display a list of menu shortcut alias commands.
-- A sample configuration file <b>.env</b> exists in  project's home directory <b>/spcoin-hardhat-contracts-js-access</b>.
-- This file, <b>"[<b>,env</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/tree/main)"</b> requires you key to be added for network access.
+- A sample configuration file <b>"[<b>,env</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/blob/main/.e/SAMPLE.env)"</b> exists in  project's home directory <b>/spcoin-hardhat-contracts-js-access</b>.
+- This file, <b>"[<b>,env</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/blob/main/.e/SAMPLE.env)"</b> requires you key to be added for network access.
 - For example, an Infura key entry would look look like:
   - <b>NFURA_API_MAIN_NET_ACCESS_KEY="<Your Infura Key Here></b>"
 - Further environment settings exist in the file <b>/spcoin-hardhat-contracts-js-access/env/.e</b>.
