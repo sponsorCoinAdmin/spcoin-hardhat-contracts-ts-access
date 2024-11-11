@@ -81,8 +81,9 @@ The <b>All Command Menus</b> are a list of shortcut alias commands for administe
 The above menu is simply a menu of many submenus. Each entry is an alias to an alternate command menu short cut. Each submenu exists under the repositories’ spcoin-hardhat-contracts-js-access/env directory. These menus cane be more completely described in the file [<b>./setupEnv/ReadMe.md</b>](https://github.com/sponsorCoinAdmin/spCoinSetupEnv/blob/main/README.md).
 - - - - 
 #### Running Your First Test Through the Menu
-- After setting up the alises, run the command <b>hhtest</b>
-- This command starts a hardhat server, deploys spCoin on the server, runs a test and dumps the output to directory file <b>"https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/test.out/hhtest.out"</b>
+- Menu test example, running run alias command <b>"hhtest</b> which is defined asalias hhtest='sethh; reset;clear; npx hardhat test 2>&1 | tee ./test.out/hhtest.out'"</b>
+- Type hhtest <return>
+- This command starts a hardhat server, deploys spCoin on the server, runs a test and dumps the output to directory file <b>"sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/test.out/hhtest.out"</b>
 - - - - 
 #### Hardhat localhost Server Setup
 - HardHat is a network access server for implementing and testing contracts using Javascript Node.
