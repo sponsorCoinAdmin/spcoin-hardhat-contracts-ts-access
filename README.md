@@ -73,7 +73,7 @@ Read all copyright clauses and information before continuing to download and/or 
 - Further environment settings exist in the file <b>/spcoin-hardhat-contracts-js-access/env/.e</b>.
  - - - - 
 ### Command Menu Shortcuts<img src="https://github.com/sponsorCoinAdmin/spCoinImages/blob/main/menu 4.jpg" width="7%" align= "right">
-The <b>All Command Menus</b> are a list of shortcut alias commands for administering the [<b>'spcoin-hardhat-contracts-js-access'</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/tree/main) project.
+The <b>All Command Menus</b> are a list of shortcut alias commands for administering the [<b>'spcoin-hardhat-contracts-js-access'</b>](https://github.com/sponsorCoinAdmin/spcoin-hardhat-contracts-js-access/blob/main/.e/.a) project.
 - If the menu system is installed correctly, simply type short cut alias <b>'m \<enter>'</b> in a bash window and the following should appear:
 - - - - 
 #### The Main Menu
