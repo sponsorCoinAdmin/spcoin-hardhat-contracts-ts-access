@@ -1,16 +1,16 @@
 let spCoinContractDeployed;
 
-deploySpCoinContract = async () => {
+const deploySpCoinContract = async () => {
   spCoinContractDeployed = await deployContract("SPCoin");
   return spCoinContractDeployed;
 }
 
-deployWETH9Contract = async () => {
+const deployWETH9Contract = async () => {
   weth9ContractDeployed = await deployContract("WETH9");
   return weth9ContractDeployed;
 }
 
-deployContract = async (symbol) => {
+const deployContract = async (symbol) => {
   //setLogMode(LOG_MODE.LOG_SETUP, true);
   // console.log("AAAA spCoinContractDeployed = await spCoinContract.deploy() AAAAAAAAAAAAAAAAAAAAAA");
 
