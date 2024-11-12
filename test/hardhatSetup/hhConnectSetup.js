@@ -19,6 +19,13 @@ const initSPCoinHHTest = async () => {
 const initSPCoinTestConnect = async () => {
   spCoinContractDeployed = await sPCoinTestConnect();
   await spCoinConnectMethods(spCoinContractDeployed);
+  // await spCoinConnectMethods.spCoinAddMethods2(spCoinContractDeployed);
+  // await spCoinConnectMethods.spCoinDeleteMethods2(spCoinContractDeployed);
+  // await spCoinConnectMethods.spCoinERC20Methods2(spCoinContractDeployed);
+  // await spCoinConnectMethods.spCoinLogger2(spCoinContractDeployed);
+  // await spCoinConnectMethods.spCoinReadMethods2(spCoinContractDeployed);
+  // await spCoinConnectMethods.spCoinRewardsMethods2(spCoinContractDeployed);
+  // await spCoinConnectMethods.spCoinStakingMethods2(spCoinContractDeployed);
   await initSPCoinHHTest();
 };
 
