@@ -8,14 +8,14 @@ alias vm="vi $ENV_DIR/.m;m"
 alias cdhh="cd $PROJECT_HOME"
 alias sethh="clear; cdhh"
 alias vbrc="vi ~/.bashrc"
-alias vg="cdhh; vi .gitignore"
+alias vg="sethh; vi .gitignore"
 alias vs="code"
 
 # HARD HAT TESTING
 alias remixd="nohup node $PROJECT_HOME/node_modules/@remix-project/remixd/src/bin/remixd.js 2>&1 > $LOGS_DIR/remixd.out &"
 alias hhcompile="sethh; npx hardhat compile"
 
-alias hhdeploypolygon="cdhh; npx hardhat run scripts/deploy.js --network polygon"
+alias hhdeploypolygon="sethh; npx hardhat run scripts/deploy.js --network polygon"
 alias hhdeploysepolia="sethh; npx hardhat run scripts/deploy.js --network sepolia"
 alias hhdeploygoerli="sethh; npx hardhat run scripts/deploy.js --network goerli"
 alias hhdeploy=hhdeploypolygon
