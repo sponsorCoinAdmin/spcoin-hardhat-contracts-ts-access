@@ -1,4 +1,4 @@
-const { LOG_MODE } = require("../test/hardhatSetup/hhConnectSetup");
+const { LOG_MODE, initSPCoinTestConnect } = require("../test/hardhatSetup/hhConnectSetup");
 const { dateInSeconds,
   second,
   minute,

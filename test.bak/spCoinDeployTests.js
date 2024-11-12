@@ -1,4 +1,4 @@
-const { LOG_MODE } = require("../test/hardhatSetup/hhConnectSetup");
+const { initSPCoinTestConnect } = require("../test/hardhatSetup/hhConnectSetup");
 
 describe("spCoinContract", function () {
   beforeEach(async () => {

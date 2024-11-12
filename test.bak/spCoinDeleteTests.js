@@ -1,4 +1,4 @@
-const { LOG_MODE } = require("../test/hardhatSetup/hhConnectSetup");
+const { LOG_MODE, initSPCoinTestConnect } = require("../test/hardhatSetup/hhConnectSetup");
 
 describe("spCoinContract", function () {
   beforeEach(async () => {
@@ -15,7 +15,7 @@ describe("spCoinContract", function () {
       console.log("*** ACCOUNT STRUCTURE BEFORE DELETE ***");
       await spCoinLogger.logJSONTree();
   
-      let expectedErrMsg = "VM Exception while processing transaction: reverted with reason string 'Sponsor Account has a Recipient, (Sponsor must Un-recipient Recipiented Account)'";
+      let expectedErrMsg = "VM Exception while processing transaction: reverted with reason string 'Sponsor Account has a Recipient, (Sponsor must Un-recipient Recipient Account)'";
       try {
         await spCoinAddMethods.deleteTestNetworkAccount(1);
       }
@@ -51,7 +51,7 @@ describe("spCoinContract", function () {
 
   it("SUCCESSFUL ERROR MSG CAUGHT: 'SPONSOR ACCOUNT HAS RECIPIENT'", async function () {
     await spCoinAddMethods.addTestNetworkRecipients(0, [1]);
-    let expectedErrMsg = "VM Exception while processing transaction: reverted with reason string 'Sponsor Account has a Recipient, (Sponsor must Un-recipient Recipiented Account)'";
+    let expectedErrMsg = "VM Exception while processing transaction: reverted with reason string 'Sponsor Account has a Recipient, (Sponsor must Un-recipient Recipient Account)'";
     try {
       await spCoinAddMethods.deleteTestNetworkAccount(0);
       throw new Error("Trace point 0. Should have thrown expected error:\n" + expectedErrMsg);
@@ -65,7 +65,7 @@ describe("spCoinContract", function () {
 
     it("SUCCESSFUL ERROR MSG CAUGHT: 'RECIPIENT ACCOUNT HAS SPONSOR'", async function () {
       await spCoinAddMethods.addTestNetworkRecipients(0, [1]);
-      let expectedErrMsg = "VM Exception while processing transaction: reverted with reason string 'Recipient Account has a Sponsor, (Sponsor must Un-recipient Recipiented Account)'";
+      let expectedErrMsg = "VM Exception while processing transaction: reverted with reason string 'Recipient Account has a Sponsor, (Sponsor must Un-recipient Recipient Account)'";
       try {
         await spCoinAddMethods.deleteTestNetworkAccount(1);
         throw new Error("Trace point 0. Should have thrown expected error:\n" + expectedErrMsg);
@@ -80,7 +80,7 @@ describe("spCoinContract", function () {
   it("SUCCESSFUL ERROR MSG CAUGHT: 'AGENT ACCOUNT HAS PARENT RECIPIENT'", async function () {
     await addAgents(RECIPIENT_ACCOUNT_KEYS[1, RECIPIENT_RATES[10, [AGENT_ACCOUNT_KEYS[0, RECIPIENT_ACCOUNT_KEYS[2]);
 
-    let expectedErrMsg = "VM Exception while processing transaction: reverted with reason string 'Agent Account has a Parent Recipient, (Sponsor must Un-recipient Recipiented Account)'";
+    let expectedErrMsg = "VM Exception while processing transaction: reverted with reason string 'Agent Account has a Parent Recipient, (Sponsor must Un-recipient Recipient Account)'";
     try {
       await deleteAccountRecord(RECIPIENT_ACCOUNT_KEYS[2);
       throw new Error("Trace point 0. Should have thrown expected error:\n" + expectedErrMsg);
