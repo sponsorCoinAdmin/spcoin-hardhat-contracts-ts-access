@@ -1,7 +1,7 @@
+const { SpCoinAddMethods } = require("./lib/spCoinAddMethods");
 const { SpCoinLogger, LOG_MODE } = require("./lib/utils/logging");
 const { SpCoinERC20Methods } = require("./lib/spCoinTransferMethods");
 const { SpCoinDeleteMethods } = require("./lib/spCoinDeleteMethods");
-const { SpCoinAddMethods } = require("./lib/spCoinAddMethods");
 const { SpCoinReadMethods } = require("./lib/SpCoinReadMethods");
 const { SpCoinRewardsMethods } = require("./lib/spCoinRewardsMethods"); 
 const { SpCoinStakingMethods } = require("./lib/spCoinStakingMethods"); 
