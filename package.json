@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@nomiclabs/hardhat-etherscan": "^3.1.7",
-    "@remix-project/remixd": "^0.6.16"
+    "@remix-project/remixd": "^0.6.16",
+    "viem": "^2.21.45"
   }
 }
