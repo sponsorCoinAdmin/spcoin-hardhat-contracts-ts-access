@@ -10,6 +10,8 @@
         "nomiclabs",
         "remixd",
         "sepolia",
-        "sethh"
+        "sethh",
+        "typechain",
+        "viem"
     ]
 }
