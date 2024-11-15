@@ -226,5 +226,5 @@ constructor(_spCoinContractDeployed) {
 //////////////////// MODULE EXPORTS //////////////////////
 
 module.exports = {
-  SpCoinAddMethods,
+  SpCoinAddMethods
 }

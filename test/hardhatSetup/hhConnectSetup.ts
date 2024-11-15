@@ -1,23 +1,26 @@
-import { expect } from "chai";
 import { initHHAccounts } from "./hhTestAccounts";
 import { deploySpCoinContract } from "./deployContract";
 import { spCoinConnectMethods } from "../../prod/spCoinMethods";
 
 const sPCoinTestConnect = async () => {
-  spCoinContractDeployed = await deploySpCoinContract();
+  const spCoinContractDeployed = await deploySpCoinContract();
   return spCoinContractDeployed;
 }
 
 const initSPCoinHHTest = async () => {
-  hhTestElements = await initHHAccounts();
-  SPONSOR_ACCOUNT_SIGNERS = hhTestElements.signers;
-  SPONSOR_ACCOUNT_KEYS = RECIPIENT_ACCOUNT_KEYS = AGENT_ACCOUNT_KEYS = hhTestElements.accounts;
-  TRANSACTION_QTY = RECIPIENT_RATES = AGENT_RATES = hhTestElements.rates;
-  BURN_ACCOUNT = hhTestElements.burnAddress;
+  const hhTestElements = await initHHAccounts();
+  const SPONSOR_ACCOUNT_SIGNERS = hhTestElements.signers;
+  const SPONSOR_ACCOUNT_KEYS = hhTestElements.accounts;
+  const RECIPIENT_ACCOUNT_KEYS = hhTestElements.accounts;
+  const AGENT_ACCOUNT_KEYS = hhTestElements.accounts;
+  const TRANSACTION_QTY = hhTestElements.rates;
+  const RECIPIENT_RATES = hhTestElements.rates;
+  const AGENT_RATES = hhTestElements.rates;
+  const BURN_ACCOUNT = hhTestElements.burnAddress;
 }
 
 const initSPCoinTestConnect = async () => {
-  spCoinContractDeployed = await sPCoinTestConnect();
+  const spCoinContractDeployed = await sPCoinTestConnect();
   await spCoinConnectMethods(spCoinContractDeployed);
   // await spCoinConnectMethods.spCoinAddMethods2(spCoinContractDeployed);
   // await spCoinConnectMethods.spCoinDeleteMethods2(spCoinContractDeployed);
