@@ -157,3 +157,5 @@ module.exports = {
   month ,
   millennium
 };
+
+export { day, second, minute, hour, week, year, month, millennium, SpCoinStakingMethods };

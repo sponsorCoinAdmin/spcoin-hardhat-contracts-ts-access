@@ -1,31 +1,33 @@
-let spCoinContractDeployed;
+import { ethers } from 'hardhat';
 
-deploySpCoinContract = async () => {
+let spCoinContractDeployed;
+let weth9ContractDeployed;
+
+const deploySpCoinContract = async () => {
   spCoinContractDeployed = await deployContract("SPCoin");
   return spCoinContractDeployed;
 }
 
-deployWETH9Contract = async () => {
+const deployWETH9Contract = async () => {
   weth9ContractDeployed = await deployContract("WETH9");
   return weth9ContractDeployed;
 }
 
-deployContract = async (symbol) => {
+const deployContract = async (symbol:string) => {
   //setLogMode(LOG_MODE.LOG_SETUP, true);
   // console.log("AAAA spCoinContractDeployed = await spCoinContract.deploy() AAAAAAAAAAAAAAAAAAAAAA");
 
-  let contract = await hre.ethers.getContractFactory(symbol);
-  contractDeployed = await contract.deploy();
+  let contract = await ethers.getContractFactory(symbol);
+  const contractDeployed = await contract.deploy();
   await contractDeployed.deployed();
 //  console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
   return contractDeployed;
 }
 
-module.exports = {
+export {
   deployContract,
   deploySpCoinContract,
   deployWETH9Contract,
-  spCoinContractDeployed
+  spCoinContractDeployed,
+  weth9ContractDeployed
 }
-
-

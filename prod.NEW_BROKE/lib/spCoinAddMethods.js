@@ -1,10 +1,12 @@
 const { SpCoinLogger } = require("./utils/logging");
-const { second, minute, hour, day, week, year, month , millennium } = require("./spCoinStakingMethods"); 
+// const { second, minute, hour, day, week, year, month , millennium } = require("./spCoinStakingMethods"); 
 
 let spCoinLogger;
-const burnAddress = "0x0000000000000000000000000000000000000000";
+const BURN_ADDRESS = "0x0000000000000000000000000000000000000000";
 
 class SpCoinAddMethods {
+  spCoinContractDeployed;
+  signer;
 
 constructor(_spCoinContractDeployed) {
     this.spCoinContractDeployed = _spCoinContractDeployed;
@@ -39,7 +41,7 @@ constructor(_spCoinContractDeployed) {
     let recipientCount = 0;
     for (recipientCount; recipientCount < _recipientAccountList.length; recipientCount++) {
       let _recipientKey = _recipientAccountList[recipientCount];
-      await addRecipient(_recipientKey);
+      await this.addRecipient(_recipientKey);
     }
     spCoinLogger.logDetail("JS => Inserted = " + recipientCount + " Recipient Records");
     return --recipientCount;
@@ -71,7 +73,7 @@ constructor(_spCoinContractDeployed) {
     for (let agentCount = 0; agentCount < agentSize; agentCount++) {
       let agentKey = _agentAccountList[agentCount];
       spCoinLogger.logDetail("JS =>  " + agentCount + ". " + "Inserting Agent[" + agentCount + "]: " + agentKey);
-      await addAgent(_recipientKey, _recipientRateKey, agentKey);
+      await this.addAgent(_recipientKey, _recipientRateKey, agentKey);
     }
     spCoinLogger.logDetail("JS => " + "Inserted = " + agentSize + " Agent Records");
     return agentCount;
@@ -90,7 +92,7 @@ constructor(_spCoinContractDeployed) {
     let maxCount = _accountListKeys.length;
     spCoinLogger.logDetail("JS => Inserting " + maxCount + " Records to Blockchain Network");
 
-    for (idx = 0; idx < maxCount; idx++) {
+    for (let idx = 0; idx < maxCount; idx++) {
       let account = _accountListKeys[idx];
       spCoinLogger.logDetail("JS => Inserting " + idx + ", " + account);
       await this.spCoinContractDeployed.connect(this.signer).addAccountRecord(account);
@@ -120,7 +122,7 @@ constructor(_spCoinContractDeployed) {
       _sponsorSigner,
       _recipientKey,
       _recipientRateKey,
-        BURN_ACCOUNT,
+        BURN_ADDRESS,
         0,
       _transactionQty);
 
@@ -177,7 +179,7 @@ constructor(_spCoinContractDeployed) {
       _sponsorSigner,
       _recipientKey,
       _recipientRateKey,
-        BURN_ACCOUNT,
+        BURN_ADDRESS,
         0,
       _transactionQty,
       _transactionBackDate);
@@ -224,5 +226,5 @@ constructor(_spCoinContractDeployed) {
 //////////////////// MODULE EXPORTS //////////////////////
 
 module.exports = {
-  SpCoinAddMethods,
+  SpCoinAddMethods
 }
