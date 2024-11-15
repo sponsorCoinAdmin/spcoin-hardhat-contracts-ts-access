@@ -6,7 +6,23 @@ import "@nomicfoundation/hardhat-toolbox";
 dotenv.config();
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.17",
+  solidity: {
+    compilers: [
+      {
+        version: "0.8.18",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 2000,
+          }
+        }
+      },
+      {
+        version: "0.4.18"
+      },
+    ],
+    // version:  "0.8.18",
+  },
   networks: {
     hardhat: {
       hardfork: "merge",
