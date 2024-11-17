@@ -1,14 +1,14 @@
 const { expect } = require("chai");
 const { initHHAccounts } = require("./hhTestAccounts");
-const { } = require("./deployContract");
+const { deploySpCoinContract } = require("./deployContract");
 const { } = require("../../../../prod/spCoinMethods");
 
-sPCoinTestConnect = async () => {
+const sPCoinTestConnect = async () => {
   spCoinContractDeployed = await deploySpCoinContract();
   return spCoinContractDeployed;
 }
 
-initSPCoinHHTest = async () => {
+const initSPCoinHHTest = async () => {
   hhTestElements = await initHHAccounts();
   SPONSOR_ACCOUNT_SIGNERS = hhTestElements.signers;
   SPONSOR_ACCOUNT_KEYS = RECIPIENT_ACCOUNT_KEYS = AGENT_ACCOUNT_KEYS = hhTestElements.accounts;
@@ -16,8 +16,14 @@ initSPCoinHHTest = async () => {
   BURN_ACCOUNT = hhTestElements.burnAddress;
 }
 
-initSPCoinTestConnect = async () => {
+const initSPCoinTestConnect = async () => {
   spCoinContractDeployed = await sPCoinTestConnect();
   await spCoinConnectMethods(spCoinContractDeployed);
   await initSPCoinHHTest();
 };
+
+module.exports = {
+  sPCoinTestConnect,
+  initSPCoinHHTest,
+  initSPCoinTestConnect
+}
