@@ -1,8 +1,7 @@
 const { LOG_MODE } = require("./hardhatSetup/hhConnectSetup");
-// const { LOG_MODE } = require("./hardhatSetup/hhConnectSetup");
-const { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year, month , millennium } = require("../../prod/lib/utils/dateTime"); 
-const { SpCoinRewardsMethods } = require("../../prod/lib/spCoinRewardsMethods"); 
-const { SpCoinAddMethods } = require("../../prod/lib/spCoinRewardsMethods"); 
+const { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year, month , millennium } = require("../prod/lib/utils/dateTime"); 
+const { SpCoinRewardsMethods } = require("../prod/lib/spCoinRewardsMethods"); 
+const { SpCoinAddMethods } = require("../prod/lib/spCoinRewardsMethods"); 
 
 describe("spCoinContract", function () {
   beforeEach(async () => {
@@ -312,7 +311,7 @@ describe("spCoinContract", function () {
   //   dateInSeconds() - year
   // );
 
-  let currDateInSecs = dateInSeconds();
+  // let currDateInSecs = dateInSeconds();
   
   await spCoinAddMethods.addBackDatedSponsorship(
     SPONSOR_ACCOUNT_SIGNERS[0],   // DEPOSIT ACCOUNT
