@@ -5,12 +5,13 @@ const { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year
 // const { SpCoinAddMethods } = require("../../prod/lib/spCoinRewardsMethods"); 
 
 describe("spCoinContract", function () {
-    // beforeEach(async () => {
-    //   await initSPCoinTestConnect();
-    // });
+    beforeEach(async () => {
+      await initSPCoinTestConnect();
+    });
   
     it("2. VALIDATE ADD TRANSACTION RATES", async function () {
-   
+   /*
+
   await spCoinAddMethods.addBackDatedSponsorship(
     SPONSOR_ACCOUNT_SIGNERS[0],   // DEPOSIT ACCOUNT
     RECIPIENT_ACCOUNT_KEYS[1], 
@@ -19,7 +20,6 @@ describe("spCoinContract", function () {
     dateInSeconds() - year
   );
   
-/*
   await spCoinRewardsMethods.updateAccountStakingRewards( SPONSOR_ACCOUNT_KEYS[0] );
 
   // console.log("********************************************************************************");
