@@ -7,7 +7,7 @@ const { SpCoinRewardsMethods } = require("./lib/spCoinRewardsMethods");
 const { SpCoinStakingMethods } = require("./lib/spCoinStakingMethods"); 
 const { second, minute, hour, day, week, year, month , millennium } = require("./lib/spCoinStakingMethods");
 
-spCoinConnectMethods = async (spCoinContractDeployed) => {
+const spCoinConnectMethods = async (spCoinContractDeployed) => {
   spCoinAddMethods = new SpCoinAddMethods(spCoinContractDeployed);
   spCoinDeleteMethods = new SpCoinDeleteMethods(spCoinContractDeployed);
   spCoinERC20Methods = new SpCoinERC20Methods(spCoinContractDeployed);
@@ -16,3 +16,7 @@ spCoinConnectMethods = async (spCoinContractDeployed) => {
   spCoinRewardsMethods = new SpCoinRewardsMethods(spCoinContractDeployed);
   spCoinStakingMethods = new SpCoinStakingMethods(spCoinContractDeployed);
 }
+
+module.exports = {
+  spCoinConnectMethods
+};
