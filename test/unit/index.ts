@@ -4,13 +4,19 @@ const { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year
 // const { SpCoinRewardsMethods } = require("../../prod/lib/spCoinRewardsMethods"); 
 // const { SpCoinAddMethods } = require("../../prod/lib/spCoinRewardsMethods"); 
 
+// import { initSPCoinTestConnect } from "../hardhatSetup/hhConnectSetup";
+import { initSPCoinTestConnect } from "./";
+
+let deployedContract:any;
+
 describe("spCoinContract", function () {
-    beforeEach(async () => {
-      await initSPCoinTestConnect();
-    });
+  beforeEach(async () => {
+    deployedContract = await initSPCoinTestConnect();
+  });
+
   
-    it("2. VALIDATE ADD TRANSACTION RATES", async function () {
-   /*
+it("2. VALIDATE ADD TRANSACTION RATES", async function () {
+/*
 
   await spCoinAddMethods.addBackDatedSponsorship(
     SPONSOR_ACCOUNT_SIGNERS[0],   // DEPOSIT ACCOUNT
