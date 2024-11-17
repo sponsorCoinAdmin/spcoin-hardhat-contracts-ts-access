@@ -5,7 +5,7 @@ const { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year
 // const { SpCoinAddMethods } = require("../../prod/lib/spCoinRewardsMethods"); 
 
 // import { initSPCoinTestConnect } from "../hardhatSetup/hhConnectSetup";
-import { initSPCoinTestConnect } from "./";
+import { initSPCoinTestConnect } from "./lib.ts/hardhatSetup/hhConnectSetup";
 
 let deployedContract:any;
 
