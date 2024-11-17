@@ -4,12 +4,12 @@ const { deploySpCoinContract } = require("./deployContract");
 const { spCoinConnectMethods } = require("../../../../prod/spCoinMethods");
 
 const sPCoinTestConnect = async () => {
-  const spCoinContractDeployed = await deploySpCoinContract();
+  spCoinContractDeployed = await deploySpCoinContract();
   return spCoinContractDeployed;
 }
 
 const initSPCoinHHTest = async () => {
-  const hhTestElements = await initHHAccounts();
+  hhTestElements = await initHHAccounts();
   SPONSOR_ACCOUNT_SIGNERS = hhTestElements.signers;
   SPONSOR_ACCOUNT_KEYS = RECIPIENT_ACCOUNT_KEYS = AGENT_ACCOUNT_KEYS = hhTestElements.accounts;
   TRANSACTION_QTY = RECIPIENT_RATES = AGENT_RATES = hhTestElements.rates;
@@ -17,7 +17,7 @@ const initSPCoinHHTest = async () => {
 }
 
 const initSPCoinTestConnect = async () => {
-  const spCoinContractDeployed = await sPCoinTestConnect();
+  spCoinContractDeployed = await sPCoinTestConnect();
   await spCoinConnectMethods(spCoinContractDeployed);
   await initSPCoinHHTest();
 };

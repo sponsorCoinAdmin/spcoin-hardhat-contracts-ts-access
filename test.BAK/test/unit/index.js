@@ -1,16 +1,16 @@
-// import { LOG_MODE, initSPCoinTestConnect } from "./hardhatSetup/hhConnectSetup";
-// import { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year, month, millennium } from "../prod/lib/utils/dateTime"; 
-const { LOG_MODE, initSPCoinTestConnect } = require("./hardhatSetup/hhConnectSetup");
-const { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year, month , millennium } = require("../prod/lib/utils/dateTime"); 
-// const { SpCoinRewardsMethods } = require("../prod/lib/spCoinRewardsMethods"); 
-// const { SpCoinAddMethods } = require("../prod/lib/spCoinRewardsMethods"); 
+// const { LOG_MODE } = require("./lib.js/hardhatSetup/hhConnectSetup");
+// const { LOG_MODE } = require("./hardhatSetup/hhConnectSetup");
+const { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year, month , millennium } = require("../../prod/lib/utils/dateTime"); 
+// const { SpCoinRewardsMethods } = require("../../prod/lib/spCoinRewardsMethods"); 
+// const { SpCoinAddMethods } = require("../../prod/lib/spCoinRewardsMethods"); 
+const { initSPCoinTestConnect } = require("./lib.js/hardhatSetup/hhConnectSetup");
 
 describe("spCoinContract", function () {
   beforeEach(async () => {
     await initSPCoinTestConnect();
   });
 
- it("2. VALIDATE ADD TRANSACTION RATES", async function () {
+ it("2. <JAVA SCRIPT> VALIDATE ADD TRANSACTION RATES", async function () {
   // Test Successful Record Insertion of Sponsor and 
   // Recipient Account to the Blockchain Network.
   // Account, Recipient and/or Agent are Successfully mutually exclusive.
@@ -313,7 +313,7 @@ describe("spCoinContract", function () {
   //   dateInSeconds() - year
   // );
 
-  let currDateInSecs = dateInSeconds();
+  // let currDateInSecs = dateInSeconds();
   
   await spCoinAddMethods.addBackDatedSponsorship(
     SPONSOR_ACCOUNT_SIGNERS[0],   // DEPOSIT ACCOUNT

@@ -15,7 +15,7 @@ const deployContract = async (symbol) => {
   // console.log("AAAA spCoinContractDeployed = await spCoinContract.deploy() AAAAAAAAAAAAAAAAAAAAAA");
 
   let contract = await hre.ethers.getContractFactory(symbol);
-  const contractDeployed = await contract.deploy();
+  contractDeployed = await contract.deploy();
   await contractDeployed.deployed();
 //  console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
   return contractDeployed;
