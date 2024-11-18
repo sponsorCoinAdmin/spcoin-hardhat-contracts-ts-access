@@ -1,6 +1,6 @@
 import { initHHAccounts } from "./hhTestAccounts";
 import { deploySpCoinContract } from "./deployContract";
-// import { spCoinConnectMethods } from "../../prod/spCoinMethods";
+// import { initSpCoinAccessMethods } from "../../prod/spCoinMethods";
 
 const sPCoinTestConnect = async () => {
   const spCoinContractDeployed = await deploySpCoinContract();
@@ -21,14 +21,14 @@ const initSPCoinHHTest = async () => {
 
 const initSPCoinTestConnect = async () => {
   const spCoinContractDeployed = await sPCoinTestConnect();
-  // await spCoinConnectMethods(spCoinContractDeployed);
-  // await spCoinConnectMethods.spCoinAddMethods2(spCoinContractDeployed);
-  // await spCoinConnectMethods.spCoinDeleteMethods2(spCoinContractDeployed);
-  // await spCoinConnectMethods.spCoinERC20Methods2(spCoinContractDeployed);
-  // await spCoinConnectMethods.spCoinLogger2(spCoinContractDeployed);
-  // await spCoinConnectMethods.spCoinReadMethods2(spCoinContractDeployed);
-  // await spCoinConnectMethods.spCoinRewardsMethods2(spCoinContractDeployed);
-  // await spCoinConnectMethods.spCoinStakingMethods2(spCoinContractDeployed);
+  // await initSpCoinAccessMethods(spCoinContractDeployed);
+  // await initSpCoinAccessMethods.spCoinAddMethods2(spCoinContractDeployed);
+  // await initSpCoinAccessMethods.spCoinDeleteMethods2(spCoinContractDeployed);
+  // await initSpCoinAccessMethods.spCoinERC20Methods2(spCoinContractDeployed);
+  // await initSpCoinAccessMethods.spCoinLogger2(spCoinContractDeployed);
+  // await initSpCoinAccessMethods.spCoinReadMethods2(spCoinContractDeployed);
+  // await initSpCoinAccessMethods.spCoinRewardsMethods2(spCoinContractDeployed);
+  // await initSpCoinAccessMethods.spCoinStakingMethods2(spCoinContractDeployed);
   // await initSPCoinHHTest();
   return spCoinContractDeployed;
 };

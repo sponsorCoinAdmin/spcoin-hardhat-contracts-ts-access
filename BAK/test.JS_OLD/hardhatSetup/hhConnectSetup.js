@@ -18,6 +18,6 @@ initSPCoinHHTest = async () => {
 
 initSPCoinTestConnect = async () => {
   spCoinContractDeployed = await sPCoinTestConnect();
-  await spCoinConnectMethods(spCoinContractDeployed);
+  await initSpCoinAccessMethods(spCoinContractDeployed);
   await initSPCoinHHTest();
 };

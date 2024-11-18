@@ -1,7 +1,7 @@
 const { expect } = require("chai");
 const { initHHAccounts } = require("./hhTestAccounts");
 const { deploySpCoinContract } = require("./deployContract");
-const { spCoinConnectMethods } = require("../../../../prod/spCoinMethods");
+const { initSpCoinAccessMethods } = require("../../../../prod/spCoinMethods");
 
 const sPCoinTestConnect = async () => {
   spCoinContractDeployed = await deploySpCoinContract();
@@ -18,7 +18,7 @@ const initSPCoinHHTest = async () => {
 
 const initSPCoinTestConnect = async () => {
   spCoinContractDeployed = await sPCoinTestConnect();
-  await spCoinConnectMethods(spCoinContractDeployed);
+  await initSpCoinAccessMethods(spCoinContractDeployed);
   await initSPCoinHHTest();
 };
 

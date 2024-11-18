@@ -1,6 +1,6 @@
 // import { TEST_HH_ACCOUNT_LIST } from "../hardhatSetup/hhTestAccounts";
 // const {} = require("../../prod/lib/spCoinAddMethods");
-import { spCoinConnectMethods } from "../../../../prod/spCoin_TS_Methods";
+import { initSpCoinAccessMethods } from "../../../../prod/spCoin_TS_Methods";
 const {} = require("../../../../prod/lib/spCoinAddMethods");
 // const {} = require("../../../../prod/lib/");
 // const {} = require("../../../prod/lib/spCoinReadMethods");
@@ -8,7 +8,7 @@ const {} = require("../../../../prod/lib/utils/logging");
 let hhTestElements:any = undefined;
 
 
-const spCoinAddMethods:any = spCoinConnectMethods.spCoinAddMethods;
+const spCoinAddMethods:any = initSpCoinAccessMethods.spCoinAddMethods;
 // const spCoinDeleteMethods = new SpCoinDeleteMethods(spCoinContractDeployed);
 // const spCoinERC20Methods = new SpCoinERC20Methods(spCoinContractDeployed);
 // const spCoinLogger = new SpCoinLogger(spCoinContractDeployed);

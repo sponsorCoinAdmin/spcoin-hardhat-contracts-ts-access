@@ -8,7 +8,7 @@ import { SpCoinStakingMethods } from "./lib/spCoinStakingMethods";
 import { second, minute, hour, day, week, year, month, millennium } from "./lib/spCoinStakingMethods"; 
 
 
-type SpCoinConnectMethods = {
+type initSpCoinAccessMethods = {
   spCoinAddMethods:SpCoinAddMethods,
   spCoinDeleteMethods:SpCoinDeleteMethods,
   spCoinERC20Methods:SpCoinERC20Methods,
@@ -18,7 +18,7 @@ type SpCoinConnectMethods = {
   spCoinStakingMethods:SpCoinStakingMethods
 }
 
- const spCoinConnectMethods = async (spCoinContractDeployed:any) => {
+ const initSpCoinAccessMethods = async (spCoinContractDeployed:any) => {
   const spCoinAddMethods:SpCoinAddMethods = new SpCoinAddMethods(spCoinContractDeployed);
   const spCoinDeleteMethods:SpCoinDeleteMethods  = new SpCoinDeleteMethods(spCoinContractDeployed);
   const spCoinERC20Methods:SpCoinERC20Methods  = new SpCoinERC20Methods(spCoinContractDeployed);
@@ -29,5 +29,5 @@ type SpCoinConnectMethods = {
 }
 
 export {
-  spCoinConnectMethods
+  initSpCoinAccessMethods
 }

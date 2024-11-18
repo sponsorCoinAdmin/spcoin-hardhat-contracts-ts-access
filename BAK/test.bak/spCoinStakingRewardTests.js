@@ -9,7 +9,7 @@ const { dateInSeconds,
   month ,
   millennium } = require("../prod/lib/utils/dateTime");
 
-// spCoinConnectMethods
+// initSpCoinAccessMethods
 // let spCoinAddMethods;
 // let spCoinDeleteMethods;
 // let spCoinERC20Methods;
