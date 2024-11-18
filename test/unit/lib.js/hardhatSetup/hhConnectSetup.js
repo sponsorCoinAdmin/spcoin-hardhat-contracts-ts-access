@@ -1,4 +1,4 @@
-const { initHHAccounts } = require("./hhTestAccounts");
+const { hhClassMethods } = require("./hhClassMethods");
 const { deploySpCoinContract } = require("./deployContract");
 const { initSpCoinAccessMethods } = require("../../../../prod/spCoinMethods");
 
@@ -8,11 +8,14 @@ const sPCoinTestConnect = async () => {
 }
 
 const initSPCoinHHTest = async () => {
-  const hhTestElements = await initHHAccounts();
-  SPONSOR_ACCOUNT_SIGNERS = hhTestElements.signers;
-  SPONSOR_ACCOUNT_KEYS = RECIPIENT_ACCOUNT_KEYS = AGENT_ACCOUNT_KEYS = hhTestElements.accounts;
-  TRANSACTION_QTY = RECIPIENT_RATES = AGENT_RATES = hhTestElements.rates;
-  BURN_ACCOUNT = hhTestElements.burnAddress;
+  hhClassMethods = new HhClassMethods();
+  await hhClassMethods.initSPCoinHHTest()
+  hhClassMethods.dump()
+  SPONSOR_ACCOUNT_SIGNERS = hhClassMethods.SPONSOR_ACCOUNT_SIGNERS;
+  RECIPIENT_ACCOUNT_KEYS = hhClassMethods.RECIPIENT_ACCOUNT_KEYS;
+  SPONSOR_ACCOUNT_KEYS = hhClassMethods.SPONSOR_ACCOUNT_KEYS;
+  RECIPIENT_RATES = hhClassMethods.RECIPIENT_RATES;
+  BURN_ACCOUNT = hhClassMethods.BURN_ACCOUNT;
 }
 
 const initSPCoinTestConnect = async () => {
