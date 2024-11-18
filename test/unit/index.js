@@ -2,27 +2,18 @@
 // const { LOG_MODE } = require("./hardhatSetup/hhConnectSetup");
 const { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year, month , millennium } = require("../../prod/lib/utils/dateTime"); 
 // const { SpCoinRewardsMethods } = require("../../prod/lib/spCoinRewardsMethods"); 
-const { SpCoinAddMethods } = require("../../prod/lib/spCoinAddMethods"); 
-const { SpCoinRewardsMethods } = require("../../prod/lib/spCoinRewardsMethods"); 
-const { SpCoinReadMethods } = require("../../prod/lib/spCoinReadMethods"); 
-const { SpCoinLogger } = require("../../prod/lib/utils/logging"); 
+const { SpCoinClassMethods } = require("../../prod/lib/spCoinClassMethods"); 
 
 // const { initSPCoinTestConnect } = require("./lib.js/hardhatSetup/hhConnectSetup");
 // const { SpCoinClassMethods } = require("../../prod/lib/spCoinClassMethods");
 const { deploySpCoinContract } = require("./lib.js/hardhatSetup/deployContract");
-const { HhClassMethods} = require("./lib.js/hardhatSetup/hhClassMethods");
-const { initSPCoinTestConnect,
-  // spCoinAddMethods,
-  // spCoinDeleteMethods,
-  // spCoinERC20Methods,
-  // spCoinLogger,
-  // spCoinReadMethods,
-  // spCoinRewardsMethods,
-  // spCoinStakingMethods
+const { HhClassMethods } = require("./lib.js/hardhatSetup/hhClassMethods");
+const { initSPCoinTestConnect
  } = require("./lib.js/hardhatSetup/hhConnectSetup");
 
 let spCoinContractDeployed;
-let spCoinAddMethods2;
+let spCoinClassMethods;
+let spCoinAddMethods;
 let spCoinRewardsMethods;
 let spCoinReadMethods;
 let hhClassMethods;
@@ -35,27 +26,21 @@ let BURN_ACCOUNT;
 
 describe("spCoinContract", function () {
   beforeEach(async () => {
-    // spCoinContractDeployed = await initSPCoinTestConnect();
     spCoinContractDeployed = await deploySpCoinContract();
-    spCoinRewardsMethods = new SpCoinRewardsMethods(spCoinContractDeployed);
-    spCoinReadMethods = new SpCoinReadMethods(spCoinContractDeployed);
-    spCoinLogger = new SpCoinLogger(spCoinContractDeployed);
+    spCoinClassMethods = new SpCoinClassMethods(spCoinContractDeployed);
+    spCoinAddMethods = spCoinClassMethods.spCoinAddMethods;
+    spCoinRewardsMethods = spCoinClassMethods.spCoinRewardsMethods;
+    spCoinReadMethods = spCoinClassMethods.spCoinReadMethods;
+    spCoinLogger = spCoinClassMethods.spCoinLogger;
     hhClassMethods = new HhClassMethods();
     await hhClassMethods.initSPCoinHHTest()
-    console.log("BEFORE DUMP")
     hhClassMethods.dump()
     SPONSOR_ACCOUNT_SIGNERS = hhClassMethods.SPONSOR_ACCOUNT_SIGNERS;
     RECIPIENT_ACCOUNT_KEYS = hhClassMethods.RECIPIENT_ACCOUNT_KEYS;
     SPONSOR_ACCOUNT_KEYS = hhClassMethods.SPONSOR_ACCOUNT_KEYS;
     RECIPIENT_RATES = hhClassMethods.RECIPIENT_RATES;
     BURN_ACCOUNT = hhClassMethods.BURN_ACCOUNT;
-    spCoinAddMethods2 = new SpCoinAddMethods(spCoinContractDeployed);
   });
-
-// describe("spCoinContract", function () {
-//   beforeEach(async () => {
-//     await initSPCoinTestConnect();
-//   });
 
  it("2. <JAVA SCRIPT> VALIDATE ADD TRANSACTION RATES", async function () {
   // Test Successful Record Insertion of Sponsor and 
@@ -362,7 +347,7 @@ describe("spCoinContract", function () {
 
   // let currDateInSecs = dateInSeconds();
   
-  await spCoinAddMethods2.addBackDatedSponsorship(
+  await spCoinAddMethods.addBackDatedSponsorship(
     SPONSOR_ACCOUNT_SIGNERS[0],   // DEPOSIT ACCOUNT
     RECIPIENT_ACCOUNT_KEYS[1], 
     RECIPIENT_RATES[9],

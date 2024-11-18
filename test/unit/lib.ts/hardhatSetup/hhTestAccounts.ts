@@ -10,7 +10,6 @@ type HHAccountType = {
    }
    
 const HHAccountStruct:HHAccountType = {
-     burnAddress: "0x0000000000000000000000000000000000000000",
      signers: [],
      accounts: undefined,
      rates: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
