@@ -227,7 +227,7 @@ class SpCoinReadMethods {
     let sponsorCoinHeader = await spCoinSerialize.deserializedSPCoinHeader();
     sponsorCoinHeader.location = Intl.DateTimeFormat().resolvedOptions().timeZone;
     if (getBody)
-      sponsorCoinHeader.accountRecords = await spCoinReadMethods.getAccountRecords()
+      sponsorCoinHeader.accountRecords = await this.getAccountRecords()
     return sponsorCoinHeader;
   }
 

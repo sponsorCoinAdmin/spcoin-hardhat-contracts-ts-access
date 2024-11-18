@@ -3,9 +3,14 @@
 const { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year, month , millennium } = require("../../prod/lib/utils/dateTime"); 
 // const { SpCoinRewardsMethods } = require("../../prod/lib/spCoinRewardsMethods"); 
 const { SpCoinAddMethods } = require("../../prod/lib/spCoinAddMethods"); 
+const { SpCoinRewardsMethods } = require("../../prod/lib/spCoinRewardsMethods"); 
+const { SpCoinReadMethods } = require("../../prod/lib/spCoinReadMethods"); 
+const { SpCoinLogger } = require("../../prod/lib/utils/logging"); 
+
 // const { initSPCoinTestConnect } = require("./lib.js/hardhatSetup/hhConnectSetup");
 // const { SpCoinClassMethods } = require("../../prod/lib/spCoinClassMethods");
-
+const { deploySpCoinContract } = require("./lib.js/hardhatSetup/deployContract");
+const { HhClassMethods} = require("./lib.js/hardhatSetup/hhClassMethods");
 const { initSPCoinTestConnect,
   // spCoinAddMethods,
   // spCoinDeleteMethods,
@@ -18,11 +23,33 @@ const { initSPCoinTestConnect,
 
 let spCoinContractDeployed;
 let spCoinAddMethods2;
+let spCoinRewardsMethods;
+let spCoinReadMethods;
+let hhClassMethods;
+let spCoinLogger;
+let SPONSOR_ACCOUNT_SIGNERS;
+let SPONSOR_ACCOUNT_KEYS;
+let RECIPIENT_ACCOUNT_KEYS; 
+let RECIPIENT_RATES;
+let BURN_ACCOUNT;
 
 describe("spCoinContract", function () {
   beforeEach(async () => {
-    spCoinContractDeployed = await initSPCoinTestConnect();
-    // spCoinAddMethods2 = new SpCoinAddMethods(spCoinContractDeployed);
+    // spCoinContractDeployed = await initSPCoinTestConnect();
+    spCoinContractDeployed = await deploySpCoinContract();
+    spCoinRewardsMethods = new SpCoinRewardsMethods(spCoinContractDeployed);
+    spCoinReadMethods = new SpCoinReadMethods(spCoinContractDeployed);
+    spCoinLogger = new SpCoinLogger(spCoinContractDeployed);
+    hhClassMethods = new HhClassMethods();
+    await hhClassMethods.initSPCoinHHTest()
+    console.log("BEFORE DUMP")
+    hhClassMethods.dump()
+    SPONSOR_ACCOUNT_SIGNERS = hhClassMethods.SPONSOR_ACCOUNT_SIGNERS;
+    RECIPIENT_ACCOUNT_KEYS = hhClassMethods.RECIPIENT_ACCOUNT_KEYS;
+    SPONSOR_ACCOUNT_KEYS = hhClassMethods.SPONSOR_ACCOUNT_KEYS;
+    RECIPIENT_RATES = hhClassMethods.RECIPIENT_RATES;
+    BURN_ACCOUNT = hhClassMethods.BURN_ACCOUNT;
+    spCoinAddMethods2 = new SpCoinAddMethods(spCoinContractDeployed);
   });
 
 // describe("spCoinContract", function () {
@@ -335,7 +362,7 @@ describe("spCoinContract", function () {
 
   // let currDateInSecs = dateInSeconds();
   
-  await spCoinAddMethods.addBackDatedSponsorship(
+  await spCoinAddMethods2.addBackDatedSponsorship(
     SPONSOR_ACCOUNT_SIGNERS[0],   // DEPOSIT ACCOUNT
     RECIPIENT_ACCOUNT_KEYS[1], 
     RECIPIENT_RATES[9],

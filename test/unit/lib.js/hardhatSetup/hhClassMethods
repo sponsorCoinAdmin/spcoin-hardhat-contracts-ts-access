@@ -1,0 +1,39 @@
+const { initHHAccounts } = require("./hhTestAccounts");
+
+class HhClassMethods {
+  constructor() {
+    this.SPONSOR_ACCOUNT_SIGNERS;
+    this.SPONSOR_ACCOUNT_KEYS;
+    this.TRANSACTION_QTY;
+    this.BURN_ACCOUNT;
+  }
+
+  getHHTestAccounts = async (_recipientKey) => {
+    hhTestElements = await initHHAccounts();
+    return hhTestElements;
+  }
+
+  initSPCoinHHTest = async () => {
+    const hhTestElements = await initHHAccounts();
+    console.log(`hhTestElements = ${JSON.stringify(hhTestElements)}`)
+    this.SPONSOR_ACCOUNT_SIGNERS = hhTestElements.signers;
+    this.SPONSOR_ACCOUNT_KEYS = this.RECIPIENT_ACCOUNT_KEYS = this.AGENT_ACCOUNT_KEYS = hhTestElements.accounts;
+    this.TRANSACTION_QTY = this.RECIPIENT_RATES = this.AGENT_RATES = hhTestElements.rates;
+    this.BURN_ACCOUNT = hhTestElements.burnAddress;
+  }
+
+  dump = () => {
+    console.log('CLASS HhClassMethods() DUMP}')
+    console.log(`SPONSOR_ACCOUNT_SIGNERS = ${this.SPONSOR_ACCOUNT_SIGNERS}`)
+    console.log(`SPONSOR_ACCOUNT_KEYS = ${this.SPONSOR_ACCOUNT_KEYS}`)
+    console.log(`TRANSACTION_QTY = ${this.TRANSACTION_QTY}`)
+    console.log(`BURN_ACCOUNT = ${this.BURN_ACCOUNT}`)
+  }
+ 
+}
+
+
+
+module.exports = {
+  HhClassMethods
+}

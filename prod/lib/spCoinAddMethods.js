@@ -2,7 +2,7 @@ const { SpCoinLogger } = require("./utils/logging");
 const { second, minute, hour, day, week, year, month , millennium } = require("./spCoinStakingMethods"); 
 
 let spCoinLogger;
-const burnAddress = "0x0000000000000000000000000000000000000000";
+const BURN_ACCOUNT = "0x0000000000000000000000000000000000000000";
 
 class SpCoinAddMethods {
 

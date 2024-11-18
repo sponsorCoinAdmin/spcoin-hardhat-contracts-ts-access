@@ -1,4 +1,3 @@
-const { expect } = require("chai");
 const { initHHAccounts } = require("./hhTestAccounts");
 const { deploySpCoinContract } = require("./deployContract");
 const { initSpCoinAccessMethods } = require("../../../../prod/spCoinMethods");
