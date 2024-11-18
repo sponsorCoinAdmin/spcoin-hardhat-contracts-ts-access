@@ -420,11 +420,11 @@ class SpCoinReadMethods {
   }
 }
 
-getRewardType = (_accountType) => {
+const getRewardType = (_accountType) => {
   return getAccountTypeString(_accountType) + " REWARDS"; 
 }
 
-getAccountTypeString = (_accountType) => {
+const getAccountTypeString = (_accountType) => {
   let strAccountType = "";
   if (_accountType == SPONSOR)
       return "SPONSOR";
@@ -437,7 +437,7 @@ getAccountTypeString = (_accountType) => {
   return strAccountType; 
 }
 
-getSourceTypeDelimiter = (_accountType) => {
+const getSourceTypeDelimiter = (_accountType) => {
   if (_accountType == SPONSOR)
       return "RECIPIENT_ACCOUNT:";
   else
