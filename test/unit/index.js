@@ -8,8 +8,6 @@ const { SpCoinClassMethods } = require("../../prod/lib/spCoinClassMethods");
 // const { SpCoinClassMethods } = require("../../prod/lib/spCoinClassMethods");
 const { deploySpCoinContract } = require("./lib.js/hardhatSetup/deployContract");
 const { HhClassMethods } = require("./lib.js/hardhatSetup/hhClassMethods");
-const { initSPCoinTestConnect
- } = require("./lib.js/hardhatSetup/hhConnectSetup");
 
 let spCoinContractDeployed;
 let spCoinClassMethods;

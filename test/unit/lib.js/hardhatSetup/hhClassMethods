@@ -44,6 +44,18 @@ class HhClassMethods {
     this.BURN_ACCOUNT = hhTestElements.burnAddress;
   }
 
+  // initSPCoinHHTest = async () => {
+  //   const hhClassMethods = new HhClassMethods();
+  //   await hhClassMethods.initSPCoinHHTest()
+  //   hhClassMethods.dump()
+  //   SPONSOR_ACCOUNT_SIGNERS = hhClassMethods.SPONSOR_ACCOUNT_SIGNERS;
+  //   RECIPIENT_ACCOUNT_KEYS = hhClassMethods.RECIPIENT_ACCOUNT_KEYS;
+  //   SPONSOR_ACCOUNT_KEYS = hhClassMethods.SPONSOR_ACCOUNT_KEYS;
+  //   RECIPIENT_RATES = hhClassMethods.RECIPIENT_RATES;
+  //   BURN_ACCOUNT = hhClassMethods.BURN_ACCOUNT;
+  // }
+  
+
   dump = () => {
     console.log('CLASS HhClassMethods() DUMP}')
     console.log(`SPONSOR_ACCOUNT_SIGNERS = ${this.SPONSOR_ACCOUNT_SIGNERS}`)
@@ -53,8 +65,6 @@ class HhClassMethods {
   }
  
 }
-
-
 
 module.exports = {
   HhClassMethods
