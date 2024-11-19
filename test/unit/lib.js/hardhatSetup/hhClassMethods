@@ -36,26 +36,24 @@ class HhClassMethods {
   }
 
   initSPCoinHHTest = async () => {
-    const hhTestElements = await initHHAccounts();
-    console.log(`hhTestElements = ${JSON.stringify(hhTestElements)}`)
-    this.SPONSOR_ACCOUNT_SIGNERS = hhTestElements.signers;
-    this.SPONSOR_ACCOUNT_KEYS = this.RECIPIENT_ACCOUNT_KEYS = this.AGENT_ACCOUNT_KEYS = hhTestElements.accounts;
-    this.TRANSACTION_QTY = this.RECIPIENT_RATES = this.AGENT_RATES = hhTestElements.rates;
-    this.BURN_ACCOUNT = hhTestElements.burnAddress;
+    const hhClassMethods = await initHHAccounts();
+    console.log(`hhClassMethods = ${JSON.stringify(hhClassMethods)}`)
+    this.SPONSOR_ACCOUNT_SIGNERS = hhClassMethods.signers;
+    this.SPONSOR_ACCOUNT_KEYS = this.RECIPIENT_ACCOUNT_KEYS = this.AGENT_ACCOUNT_KEYS = hhClassMethods.accounts;
+    this.TRANSACTION_QTY = this.RECIPIENT_RATES = this.AGENT_RATES = hhClassMethods.rates;
+    this.BURN_ACCOUNT = hhClassMethods.burnAddress;
   }
 
-  // initSPCoinHHTest = async () => {
-  //   const hhClassMethods = new HhClassMethods();
-  //   await hhClassMethods.initSPCoinHHTest()
-  //   hhClassMethods.dump()
-  //   SPONSOR_ACCOUNT_SIGNERS = hhClassMethods.SPONSOR_ACCOUNT_SIGNERS;
-  //   RECIPIENT_ACCOUNT_KEYS = hhClassMethods.RECIPIENT_ACCOUNT_KEYS;
-  //   SPONSOR_ACCOUNT_KEYS = hhClassMethods.SPONSOR_ACCOUNT_KEYS;
-  //   RECIPIENT_RATES = hhClassMethods.RECIPIENT_RATES;
-  //   BURN_ACCOUNT = hhClassMethods.BURN_ACCOUNT;
-  // }
+  initSPCoinHHTest2 = async () => {
+    const hhClassMethods = await initHHAccounts();
+    hhClassMethods.dump()
+    SPONSOR_ACCOUNT_SIGNERS = hhClassMethods.SPONSOR_ACCOUNT_SIGNERS;
+    RECIPIENT_ACCOUNT_KEYS = hhClassMethods.RECIPIENT_ACCOUNT_KEYS;
+    SPONSOR_ACCOUNT_KEYS = hhClassMethods.SPONSOR_ACCOUNT_KEYS;
+    RECIPIENT_RATES = hhClassMethods.RECIPIENT_RATES;
+    BURN_ACCOUNT = hhClassMethods.BURN_ACCOUNT;
+  }
   
-
   dump = () => {
     console.log('CLASS HhClassMethods() DUMP}')
     console.log(`SPONSOR_ACCOUNT_SIGNERS = ${this.SPONSOR_ACCOUNT_SIGNERS}`)
