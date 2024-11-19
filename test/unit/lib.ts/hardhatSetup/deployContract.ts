@@ -19,9 +19,7 @@ const deployContract = async (symbol:string) => {
 
   let contract = await ethers.getContractFactory(symbol);
   const contractDeployed = await contract.deploy();
-  // console.log(`AAAAAAAAAAA contractDeployed = ${JSON.stringify(contractDeployed,null,2)}`);
   await contractDeployed.deployed();
-//  console.log("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
   return contractDeployed;
 }
 

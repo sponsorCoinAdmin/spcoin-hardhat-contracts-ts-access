@@ -31,7 +31,7 @@ describe("spCoinContract", function () {
     spCoinReadMethods = spCoinClassMethods.spCoinReadMethods;
     spCoinLogger = spCoinClassMethods.spCoinLogger;
     hhClassMethods = new HhClassMethods();
-    await hhClassMethods.initSPCoinHHTest()
+    await hhClassMethods.initHHAccounts()
     hhClassMethods.dump()
     SPONSOR_ACCOUNT_SIGNERS = hhClassMethods.SPONSOR_ACCOUNT_SIGNERS;
     RECIPIENT_ACCOUNT_KEYS = hhClassMethods.RECIPIENT_ACCOUNT_KEYS;
