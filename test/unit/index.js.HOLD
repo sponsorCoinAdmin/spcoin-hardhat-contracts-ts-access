@@ -2,11 +2,42 @@
 // const { LOG_MODE } = require("./hardhatSetup/hhConnectSetup");
 const { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year, month , millennium } = require("../../prod/lib/utils/dateTime"); 
 // const { SpCoinRewardsMethods } = require("../../prod/lib/spCoinRewardsMethods"); 
-// const { SpCoinAddMethods } = require("../../prod/lib/spCoinRewardsMethods"); 
+const { SpCoinClassMethods } = require("../../prod/lib/spCoinClassMethods"); 
+
+// const { initSPCoinTestConnect } = require("./lib.js/hardhatSetup/hhConnectSetup");
+// const { SpCoinClassMethods } = require("../../prod/lib/spCoinClassMethods");
+const { deploySpCoinContract } = require("./lib.js/hardhatSetup/deployContract");
+const { HhClassMethods } = require("./lib.js/hardhatSetup/hhClassMethods");
+
+let spCoinContractDeployed;
+let spCoinClassMethods;
+let spCoinAddMethods;
+let spCoinRewardsMethods;
+let spCoinReadMethods;
+let hhClassMethods;
+let spCoinLogger;
+let SPONSOR_ACCOUNT_SIGNERS;
+let SPONSOR_ACCOUNT_KEYS;
+let RECIPIENT_ACCOUNT_KEYS; 
+let RECIPIENT_RATES;
+let BURN_ACCOUNT;
 
 describe("spCoinContract", function () {
   beforeEach(async () => {
-    await initSPCoinTestConnect();
+    spCoinContractDeployed = await deploySpCoinContract();
+    spCoinClassMethods = new SpCoinClassMethods(spCoinContractDeployed);
+    spCoinAddMethods = spCoinClassMethods.spCoinAddMethods;
+    spCoinRewardsMethods = spCoinClassMethods.spCoinRewardsMethods;
+    spCoinReadMethods = spCoinClassMethods.spCoinReadMethods;
+    spCoinLogger = spCoinClassMethods.spCoinLogger;
+    hhClassMethods = new HhClassMethods();
+    await hhClassMethods.initHHAccounts()
+    hhClassMethods.dump()
+    SPONSOR_ACCOUNT_SIGNERS = hhClassMethods.SPONSOR_ACCOUNT_SIGNERS;
+    RECIPIENT_ACCOUNT_KEYS = hhClassMethods.RECIPIENT_ACCOUNT_KEYS;
+    SPONSOR_ACCOUNT_KEYS = hhClassMethods.SPONSOR_ACCOUNT_KEYS;
+    RECIPIENT_RATES = hhClassMethods.RECIPIENT_RATES;
+    BURN_ACCOUNT = hhClassMethods.BURN_ACCOUNT;
   });
 
  it("2. <JAVA SCRIPT> VALIDATE ADD TRANSACTION RATES", async function () {
