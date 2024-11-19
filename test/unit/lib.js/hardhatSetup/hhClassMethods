@@ -8,27 +8,29 @@ class HHAccountStruct {
   }
 };
 
-const initHHAccounts = async ( ) => {
-  signers = await ethers.getSigners();
-  let hhTestAccountElements = new HHAccountStruct();
-  let accounts = [];
-  signers.forEach((signer, i) => {
-       signer.address = signer.address.toLowerCase();
-       accounts.push(signer.address);
-  });
 
-  hhTestAccountElements.signers = signers;
-  hhTestAccountElements.accounts = accounts; 
-  return hhTestAccountElements;
-};
 
 class HhClassMethods {
   constructor() {
     this.SPONSOR_ACCOUNT_SIGNERS;
     this.SPONSOR_ACCOUNT_KEYS;
     this.TRANSACTION_QTY;
-    this.BURN_ACCOUNT;
+    this.BURN_ACCOUNT = "0x0000000000000000000000000000000000000000";
   }
+
+  initHHAccounts = async ( ) => {
+    let signers = await ethers.getSigners();
+    let hhTestAccountElements = new HHAccountStruct();
+    let accounts = [];
+    signers.forEach((signer, i) => {
+         signer.address = signer.address.toLowerCase();
+         accounts.push(signer.address);
+    });
+  
+    hhTestAccountElements.signers = signers;
+    hhTestAccountElements.accounts = accounts; 
+    return hhTestAccountElements;
+  };
 
   getHHTestAccounts = async (_recipientKey) => {
     hhTestElements = await initHHAccounts();
@@ -36,8 +38,9 @@ class HhClassMethods {
   }
 
   initSPCoinHHTest = async () => {
-    const hhClassMethods = await initHHAccounts();
-    console.log(`hhClassMethods = ${JSON.stringify(hhClassMethods)}`)
+    const hhClassMethods = await this.initHHAccounts();
+    // console.log(`hhClassMethods = ${JSON.stringify(hhClassMethods)}`)
+    // this.dump();
     this.SPONSOR_ACCOUNT_SIGNERS = hhClassMethods.signers;
     this.SPONSOR_ACCOUNT_KEYS = this.RECIPIENT_ACCOUNT_KEYS = this.AGENT_ACCOUNT_KEYS = hhClassMethods.accounts;
     this.TRANSACTION_QTY = this.RECIPIENT_RATES = this.AGENT_RATES = hhClassMethods.rates;
@@ -45,7 +48,7 @@ class HhClassMethods {
   }
 
   initSPCoinHHTest2 = async () => {
-    const hhClassMethods = await initHHAccounts();
+    const hhClassMethods = await this.initHHAccounts();
     hhClassMethods.dump()
     SPONSOR_ACCOUNT_SIGNERS = hhClassMethods.SPONSOR_ACCOUNT_SIGNERS;
     RECIPIENT_ACCOUNT_KEYS = hhClassMethods.RECIPIENT_ACCOUNT_KEYS;
@@ -61,7 +64,6 @@ class HhClassMethods {
     console.log(`TRANSACTION_QTY = ${this.TRANSACTION_QTY}`)
     console.log(`BURN_ACCOUNT = ${this.BURN_ACCOUNT}`)
   }
- 
 }
 
 module.exports = {

@@ -8,7 +8,7 @@ const {} = require("../../../../prod/lib/utils/logging");
 let hhTestElements:any = undefined;
 
 
-const spCoinAddMethods:any = initSpCoinAccessMethods.spCoinAddMethods;
+const { HhClassMethods } = require("../../lib.js/hardhatSetup/hhClassMethods");
 // const spCoinDeleteMethods = new SpCoinDeleteMethods(spCoinContractDeployed);
 // const spCoinERC20Methods = new SpCoinERC20Methods(spCoinContractDeployed);
 // const spCoinLogger = new SpCoinLogger(spCoinContractDeployed);
@@ -18,6 +18,10 @@ const spCoinAddMethods:any = initSpCoinAccessMethods.spCoinAddMethods;
 
 
 const getTestHHAccountKey = async (idx:number) => {
+
+  
+
+
   if (hhTestElements === undefined) {
      hhTestElements = await initHHAccounts();
   }

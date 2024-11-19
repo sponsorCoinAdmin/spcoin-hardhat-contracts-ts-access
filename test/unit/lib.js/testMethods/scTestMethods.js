@@ -2,15 +2,23 @@
 // const {SpCoinAddMethods} = require("../../../../prod/lib/spCoinAddMethods");
 // const {SpCoinReadMethods} = require("../../../../prod/lib/spCoinReadMethods");
 // const {SpCoinLogger, LOG_MODE} = require("../../../../prod/lib/utils/logging");
+const { HhClassMethods } = require("../hardhatSetup/hhClassMethods");
+
 let hhTestElements = undefined;
 
 const getTestHHAccountKey = async (idx) => {
-  if (hhTestElements === undefined) {
-     hhTestElements = await initHHAccounts();
-  }
-  const signers = hhTestElements.signers;
+
+  hhClassMethods = new HhClassMethods();
+  await hhClassMethods.initSPCoinHHTest();
+  hhClassMethods.dump();
+  SPONSOR_ACCOUNT_SIGNERS = hhClassMethods.SPONSOR_ACCOUNT_SIGNERS;
+  RECIPIENT_ACCOUNT_KEYS = hhClassMethods.RECIPIENT_ACCOUNT_KEYS;
+  SPONSOR_ACCOUNT_KEYS = hhClassMethods.SPONSOR_ACCOUNT_KEYS;
+  RECIPIENT_RATES = hhClassMethods.RECIPIENT_RATES;
+  BURN_ACCOUNT = hhClassMethods.BURN_ACCOUNT;
+
   const accounts = hhTestElements.accounts;
-  const rates = hhTestElements.rates;
+
   return accounts[idx];
 }
 
