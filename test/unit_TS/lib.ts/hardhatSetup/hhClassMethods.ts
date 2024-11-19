@@ -1,35 +1,50 @@
-import { Address } from "viem";
-import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
-import { ethers } from 'hardhat';
+import hre from "hardhat";
+export class HhClassMethods {
+  SPONSOR_ACCOUNT_SIGNERS: any;
+  SPONSOR_ACCOUNT_KEYS: any;
+  RECIPIENT_ACCOUNT_KEYS: any;
+  AGENT_ACCOUNT_KEYS: any;
+  RECIPIENT_RATES: number[];
+  AGENT_RATES: number[];
+  BURN_ACCOUNT: string;
+  RATES: any;
+  constructor() {
+    this.SPONSOR_ACCOUNT_SIGNERS;
+    this.SPONSOR_ACCOUNT_KEYS;
+    this.RECIPIENT_ACCOUNT_KEYS;
+    this.AGENT_ACCOUNT_KEYS;
+    this.RECIPIENT_RATES = this.AGENT_RATES = [0,1,2,3,4,5,6,7,8,9,10];
+    this.BURN_ACCOUNT = "0x0000000000000000000000000000000000000000";
+  }
 
-type HHAccountType = {
-     burnAddress:Address,
-     signers: SignerWithAddress[];
-     accounts:any
-     rates: number[];
+  initHHAccounts = async ( ) => {
+    let signers = await hre.ethers.getSigners();
+    let accounts:any[] = [];
+    signers.forEach((signer, i) => {
+         accounts.push(signer.address.toLowerCase());
+    });
+  
+    this.SPONSOR_ACCOUNT_SIGNERS = signers;
+    this.SPONSOR_ACCOUNT_KEYS = this.RECIPIENT_ACCOUNT_KEYS = this.AGENT_ACCOUNT_KEYS = accounts;
+  };
+
+  initSPCoinHHTest = async () => {
+    const hhClassMethods = await this.initHHAccounts();
+    // console.log(`hhClassMethods = ${JSON.stringify(hhClassMethods)}`)
+    // this.dump();
    }
-   
-const HHAccountStruct:HHAccountType = {
-     signers: [],
-     accounts: undefined,
-     rates: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-};
+  
+  dump = () => {
+    console.log('CLASS HhClassMethods() DUMP}')
+    console.log(`SPONSOR_ACCOUNT_SIGNERS = ${this.SPONSOR_ACCOUNT_SIGNERS}`)
+    console.log(`SPONSOR_ACCOUNT_KEYS = ${this.SPONSOR_ACCOUNT_KEYS}`)
+    console.log(`RATES = ${this.RATES}`)
+    console.log(`BURN_ACCOUNT = ${this.BURN_ACCOUNT}`)
+  }
+}
 
-const initHHAccounts = async ( ) => {
-     let signers: SignerWithAddress[] = await ethers.getSigners();
-     let hhTestAccountElements = HHAccountStruct;
-     let accounts:any = [];
-     signers.forEach((signer, i) => {
-          accounts.push(signer.address.toLowerCase());
-     });
-
-     hhTestAccountElements.signers = signers;
-     hhTestAccountElements.accounts = accounts; 
-     return hhTestAccountElements;
- };
-
-export {
-     initHHAccounts
+module.exports = {
+  HhClassMethods
 }
 
 ///// TEST ACCOUNT REFERENCES ////

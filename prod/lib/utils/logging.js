@@ -33,7 +33,7 @@ class SpCoinLogger {
         // if (_spCoinContractDeployed !== undefined) {
             this.spCoinContractDeployed = _spCoinContractDeployed;
             // spCoinReadMethods = new SpCoinReadMethods(_spCoinContractDeployed);
-            this.setSigner(_spCoinContractDeployed.signer);
+            this.setSigner(_spCoinContractDeployed?.signer);
         // }
       }
     

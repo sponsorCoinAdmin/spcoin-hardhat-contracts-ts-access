@@ -12,8 +12,7 @@ class HhClassMethods {
     let signers = await ethers.getSigners();
     let accounts = [];
     signers.forEach((signer, i) => {
-         signer.address = signer.address.toLowerCase();
-         accounts.push(signer.address);
+         accounts.push(signer.address.toLowerCase());
     });
   
     this.SPONSOR_ACCOUNT_SIGNERS = signers;

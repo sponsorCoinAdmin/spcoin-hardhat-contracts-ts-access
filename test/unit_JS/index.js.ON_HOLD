@@ -1,11 +1,5 @@
-// const { LOG_MODE } = require("./lib.js/hardhatSetup/hhConnectSetup");
-// const { LOG_MODE } = require("./hardhatSetup/hhConnectSetup");
 const { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year, month , millennium } = require("../../prod/lib/utils/dateTime"); 
-// const { SpCoinRewardsMethods } = require("../../prod/lib/spCoinRewardsMethods"); 
 const { SpCoinClassMethods } = require("../../prod/lib/spCoinClassMethods"); 
-
-// const { initSPCoinTestConnect } = require("./lib.js/hardhatSetup/hhConnectSetup");
-// const { SpCoinClassMethods } = require("../../prod/lib/spCoinClassMethods");
 const { deploySpCoinContract } = require("./lib.js/hardhatSetup/deployContract");
 const { HhClassMethods } = require("./lib.js/hardhatSetup/hhClassMethods");
 
@@ -352,7 +346,6 @@ describe("spCoinContract", function () {
     "100", 
     dateInSeconds() - year
   );
-
 
   // await spCoinAddMethods.addBackDatedSponsorship(
   //   SPONSOR_ACCOUNT_SIGNERS[0],   // DEPOSIT ACCOUNT

@@ -1,0 +1,180 @@
+import { SpCoinClassMethods } from "../../../../prod/lib/spCoinClassMethods";
+import { HhClassMethods } from "../hardhatSetup/hhClassMethods";
+import { deploySpCoinContract } from "../../lib.js/hardhatSetup/deployContract";
+
+let spCoinContractDeployed;
+let spCoinClassMethods;
+let SpCoinAddMethods;
+let spCoinRewardsMethods;
+let spCoinReadMethods;
+let spCoinDeleteMethods;
+let spCoinLogger;
+let hhClassMethods;
+
+const initSpCoinMethods = async () => {
+  spCoinContractDeployed = await deploySpCoinContract();
+  spCoinClassMethods = new SpCoinClassMethods(spCoinContractDeployed);
+  spCoinAddMethods = spCoinClassMethods.spCoinAddMethods;
+  spCoinRewardsMethods = spCoinClassMethods.spCoinRewardsMethods;
+  spCoinReadMethods = spCoinClassMethods.spCoinReadMethods;
+  spCoinLogger = spCoinClassMethods.spCoinLogger;
+  hhClassMethods = new HhClassMethods();
+  await hhClassMethods.initHHAccounts()
+  hhClassMethods.dump()
+  SPONSOR_ACCOUNT_SIGNERS = hhClassMethods.SPONSOR_ACCOUNT_SIGNERS;
+  RECIPIENT_ACCOUNT_KEYS = hhClassMethods.RECIPIENT_ACCOUNT_KEYS;
+  SPONSOR_ACCOUNT_KEYS = hhClassMethods.SPONSOR_ACCOUNT_KEYS;
+  RECIPIENT_RATES = hhClassMethods.RECIPIENT_RATES;
+  BURN_ACCOUNT = hhClassMethods.BURN_ACCOUNT;
+}
+
+const getTestHHAccountKey = async (idx) => {
+
+  let hhClassMethods = new HhClassMethods();
+  await hhClassMethods.initHHAccounts();
+  hhClassMethods.dump();
+  const SPONSOR_ACCOUNT_SIGNERS = hhClassMethods.SPONSOR_ACCOUNT_SIGNERS;
+  const RECIPIENT_ACCOUNT_KEYS = hhClassMethods.RECIPIENT_ACCOUNT_KEYS;
+  const SPONSOR_ACCOUNT_KEYS = hhClassMethods.SPONSOR_ACCOUNT_KEYS;
+  const RECIPIENT_RATES = hhClassMethods.RECIPIENT_RATES;
+  const BURN_ACCOUNT = hhClassMethods.BURN_ACCOUNT;
+
+  return RECIPIENT_ACCOUNT_KEYS[idx];
+}
+
+//////////////////////////// TEST ACCOUNT METHODS ////////////////////////////
+
+const addTestNetworkAccount = async (_accountIdx) => {
+  spCoinLogger.logFunctionHeader("addTestNetworkAccount = async (" + _accountIdx + ")");
+  let accountKey = await getTestHHAccountKey(_accountIdx);
+  spCoinLogger.logDetail("JS => For Adding Account Record: " + accountKey );
+  await spCoinAddMethods.addAccountRecord(accountKey);
+  spCoinLogger.logExitFunction();
+};
+
+// const addTestNetworkAccount = async (_testHHAccountIdx) => {
+//   spCoinLogger.logFunctionHeader("async (" + _testHHAccountIdx+ ")");
+//   let accountKey = await getTestHHAccountKey(_testHHAccountIdx);
+//   await spCoinAddMethods.addAccountRecord(accountKey);
+//   return accountKey;
+//   spCoinLogger.logExitFunction();
+// };
+
+
+const addTestNetworkAccounts = async (_AccountList) => {
+  spCoinLogger.logFunctionHeader("addTestNetworkAccounts = async (" + _AccountList + ")");
+  let testHHAccountList = await getTestHHAccountListKeys(_AccountList);
+  spCoinLogger.logDetail("JS => For Adding Account Records: " + testHHAccountList );
+  await spCoinAddMethods.addAccountRecords(testHHAccountList);
+  spCoinLogger.logExitFunction();
+};
+
+//////////////////////////// TEST RECIPIENT METHODS ////////////////////////////
+
+const addTestNetworkRecipient = async (_accountIdx, _recipientIdx) => {
+  spCoinLogger.logFunctionHeader("addTestNetworkRecipient = async (" + _accountIdx + ", " + _recipientIdx + ")");
+
+  let accountKey = await getTestHHAccountKey(_accountIdx);
+  let recipientKey = await getTestHHAccountKey(_recipientIdx);  
+  spCoinLogger.logDetail("JS => For Account: " + accountKey + " Inserting Recipient Records");
+  spCoinLogger.logDetail(recipientKey);
+  await spCoinAddMethods.addRecipient(recipientKey);
+  spCoinLogger.logExitFunction();
+};
+
+const addTestNetworkRecipients = async (_accountIdx, _recipientAccountListIdx) => {
+  spCoinLogger.logFunctionHeader("addTestNetworkRecipients = async (" + _accountIdx + ", " + _recipientAccountListIdx + ")");
+
+  let accountKey = await getTestHHAccountKey(_accountIdx);
+  let recipientAccountList = await getTestHHAccountListKeys(_recipientAccountListIdx);
+  spCoinLogger.logDetail("JS => For Account: " + accountKey + " Inserting Recipient Records:");
+  spCoinLogger.logDetail(recipientAccountList);
+  await spCoinAddMethods.addRecipients(accountKey, recipientAccountList);
+  spCoinLogger.logExitFunction();
+};
+
+//////////////////////////// TEST AGENT METHODS ////////////////////////////
+
+const addTestNetworkRecipientAgents = async (_recipientIdx, _recipientRateKey, _agentListIdx ) => {
+  spCoinLogger.logFunctionHeader("async (" + _recipientIdx + "," + _agentListIdx+ ")");
+  let recipientKey = await getTestHHAccountKey(_recipientIdx);
+  let agentAccountList = await getTestHHAccountListKeys(_agentListIdx);
+  await spCoinAddMethods.addAgents(recipientKey, _recipientRateKey, agentAccountList);
+  return recipientKey;
+  spCoinLogger.logExitFunction();
+};
+
+const getTestHHAccountListKeys = async (testAccountIdxArr) => {
+  spCoinLogger.logFunctionHeader("await getTestHHAccountListKeys (" + testAccountIdxArr + ")");
+  let AccountListKeys = [];
+  for (let i = 0; i < testAccountIdxArr.length; i++) {
+    AccountListKeys.push(await getTestHHAccountKey(testAccountIdxArr[i]));
+  }
+  spCoinLogger.logExitFunction();
+  return AccountListKeys;
+};
+
+const getTestHHAccountRecord = async (testHHAccountIdx) => {
+  const testHHAccountKey = await getTestHHAccountKey(testHHAccountIdx);
+  const testHHAccountRecord = spCoinReadMethods.getAccountRecord(testHHAccountKey);
+  return testHHAccountRecord;
+}
+
+const logTestHHAccountRecord = async (testHHAccountIdx) => {
+  const testHHAccountKey = await getTestHHAccountKey(testHHAccountIdx);
+  const testHHAccountRecord = spCoinLogger.logJSONAccount(testHHAccountKey);
+  spCoinLogger.logExitFunction();
+  return testHHAccountRecord;
+}
+
+///////////////////////////// DELETE METHODS ///////////////////////////////
+
+const deleteTestNetworkAccount = async (_testHHAccountIdx) => {
+  spCoinLogger.logFunctionHeader("async (" + _testHHAccountIdx+ ")");
+  let accountKey = await getTestHHAccountKey(_testHHAccountIdx);
+  await spCoinDeleteMethods.deleteAccountRecord(accountKey);
+  spCoinLogger.logExitFunction();
+  return accountKey;
+};
+
+const deleteTestNetworkAccounts = async (_testHHAccountArr) => {
+  spCoinLogger.logFunctionHeader("async (" + _testHHAccountArr+ ")");
+  const testHHAccountList = await getTestHHAccountListKeys(_testHHAccountArr);
+  await spCoinDeleteMethods.deleteAccountRecords(testHHAccountList);
+  spCoinLogger.logExitFunction();
+};
+
+/////////////////////////// TEST UN-RECIPIENT METHODS //////////////////////////
+
+
+const deleteTestNetworkRecipients = async (_testHHAccountIdx) => {
+  spCoinLogger.logFunctionHeader("async (" + _testHHAccountIdx+ ")");
+  let accountKey = await getTestHHAccountKey(_testHHAccountIdx);
+  await (accountKey);
+  spCoinLogger.logExitFunction();
+  return accountKey;
+};
+
+initSpCoinMethods();
+/*
+deleteTestNetworkRecipientAgents = async (_testHHAccountIdx) => {
+  spCoinLogger.logFunctionHeader("async (" + _testHHAccountIdx+ ")");
+  let accountKey = await getTestHHAccountKey(_testHHAccountIdx);
+  await spCoinDeleteMethods.deleteAgentAccountReferences(accountKey);
+    spCoinLogger.logExitFunction();
+  return accountKey;
+};
+*/
+
+module.exports = {
+  getTestHHAccountListKeys,
+  addTestNetworkAccount,
+  addTestNetworkAccounts,
+  addTestNetworkRecipient,
+  addTestNetworkRecipients,
+  addTestNetworkRecipientAgents,
+  deleteTestNetworkAccount,
+  getTestHHAccountKey,
+  getTestHHAccountRecord,
+  logTestHHAccountRecord
+}
