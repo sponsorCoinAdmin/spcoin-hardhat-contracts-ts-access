@@ -1,20 +1,19 @@
 class HHAccountStruct {
   constructor()
   {
-       this.burnAddress = "0x0000000000000000000000000000000000000000";
        this.signers;
        this.accounts;
        this.rates = [0,1,2,3,4,5,6,7,8,9,10];
   }
 };
 
-
-
 class HhClassMethods {
   constructor() {
     this.SPONSOR_ACCOUNT_SIGNERS;
     this.SPONSOR_ACCOUNT_KEYS;
-    this.TRANSACTION_QTY;
+    this.RECIPIENT_ACCOUNT_KEYS;
+    this.AGENT_ACCOUNT_KEYS;
+    this.RECIPIENT_RATES = this.AGENT_RATES = [0,1,2,3,4,5,6,7,8,9,10];
     this.BURN_ACCOUNT = "0x0000000000000000000000000000000000000000";
   }
 
@@ -43,8 +42,6 @@ class HhClassMethods {
     // this.dump();
     this.SPONSOR_ACCOUNT_SIGNERS = hhClassMethods.signers;
     this.SPONSOR_ACCOUNT_KEYS = this.RECIPIENT_ACCOUNT_KEYS = this.AGENT_ACCOUNT_KEYS = hhClassMethods.accounts;
-    this.TRANSACTION_QTY = this.RECIPIENT_RATES = this.AGENT_RATES = hhClassMethods.rates;
-    this.BURN_ACCOUNT = hhClassMethods.burnAddress;
   }
 
   initSPCoinHHTest2 = async () => {
@@ -61,7 +58,7 @@ class HhClassMethods {
     console.log('CLASS HhClassMethods() DUMP}')
     console.log(`SPONSOR_ACCOUNT_SIGNERS = ${this.SPONSOR_ACCOUNT_SIGNERS}`)
     console.log(`SPONSOR_ACCOUNT_KEYS = ${this.SPONSOR_ACCOUNT_KEYS}`)
-    console.log(`TRANSACTION_QTY = ${this.TRANSACTION_QTY}`)
+    console.log(`RATES = ${this.RATES}`)
     console.log(`BURN_ACCOUNT = ${this.BURN_ACCOUNT}`)
   }
 }
