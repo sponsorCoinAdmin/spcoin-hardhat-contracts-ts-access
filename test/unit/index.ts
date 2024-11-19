@@ -7,16 +7,16 @@ import { HhClassMethods } from "./lib.js/hardhatSetup/hhClassMethods";
 
 let spCoinContractDeployed;
 let spCoinClassMethods;
-let spCoinAddMethods;
-let spCoinRewardsMethods;
-let spCoinReadMethods;
+let spCoinAddMethods:any;
+let spCoinRewardsMethods:any;
+let spCoinReadMethods:any;
 let hhClassMethods;
-let spCoinLogger;
-let SPONSOR_ACCOUNT_SIGNERS;
-let SPONSOR_ACCOUNT_KEYS;
-let RECIPIENT_ACCOUNT_KEYS; 
-let RECIPIENT_RATES;
-let BURN_ACCOUNT;
+let spCoinLogger:any;
+let SPONSOR_ACCOUNT_SIGNERS:any;
+let SPONSOR_ACCOUNT_KEYS:any;
+let RECIPIENT_ACCOUNT_KEYS:any; 
+let RECIPIENT_RATES:any;
+let BURN_ACCOUNT:any;
 
 describe("spCoinContract", function () {
   beforeEach(async () => {
@@ -58,7 +58,6 @@ describe("spCoinContract", function () {
 
   spCoinLogger.logJSONTree(spCoinRecords);
 
- 
   });
 /**/
 });
