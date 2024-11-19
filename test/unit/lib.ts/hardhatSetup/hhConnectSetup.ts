@@ -13,7 +13,6 @@ const initSPCoinHHTest = async () => {
   const SPONSOR_ACCOUNT_KEYS = hhTestElements.accounts;
   const RECIPIENT_ACCOUNT_KEYS = hhTestElements.accounts;
   const AGENT_ACCOUNT_KEYS = hhTestElements.accounts;
-  const TRANSACTION_QTY = hhTestElements.rates;
   const RECIPIENT_RATES = hhTestElements.rates;
   const AGENT_RATES = hhTestElements.rates;
   const BURN_ACCOUNT = hhTestElements.burnAddress;
