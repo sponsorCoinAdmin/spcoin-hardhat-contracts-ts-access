@@ -1,4 +1,4 @@
-import { SpCoinClassMethods } from "../../../../prod/lib/spCoinClassMethods";
+import { SpCoinClassMethods } from "../../../../spcoin-access-modules/lib/spCoinClassMethods";
 import { HhClassMethods } from "../hardhatSetup/hhClassMethods";
 import { deploySpCoinContract } from "../../lib.js/hardhatSetup/deployContract";
 
