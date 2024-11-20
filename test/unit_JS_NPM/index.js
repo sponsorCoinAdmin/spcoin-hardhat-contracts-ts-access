@@ -1,20 +1,21 @@
-import { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year, month, millennium } from "../../prod/lib/utils/dateTime"; 
-import { SpCoinClassMethods } from "../../prod/lib/spCoinClassMethods"; 
-import { deploySpCoinContract } from "./lib.ts/hardhatSetup/deployContract";
-import { HhClassMethods } from "./lib.ts/hardhatSetup/hhClassMethods";
+const { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year, month , millennium } = require("../../spcoin-access-modules/lib/utils/dateTime"); 
+// const { SpCoinClassMethods } = require("../../spcoin-access-modules/spCoin_JS_Methods"); 
+const { SpCoinClassMethods } = require("@sponsorcoin/spcoin-access-modules/spCoin_JS_Methods"); 
+const { deploySpCoinContract } = require("./lib.js/hardhatSetup/deployContract");
+const { HhClassMethods } = require("./lib.js/hardhatSetup/hhClassMethods");
 
 let spCoinContractDeployed;
 let spCoinClassMethods;
-let spCoinAddMethods:any;
-let spCoinRewardsMethods:any;
-let spCoinReadMethods:any;
+let spCoinAddMethods;
+let spCoinRewardsMethods;
+let spCoinReadMethods;
 let hhClassMethods;
-let spCoinLogger:any;
-let SPONSOR_ACCOUNT_SIGNERS:any;
-let SPONSOR_ACCOUNT_KEYS:any;
-let RECIPIENT_ACCOUNT_KEYS:any; 
-let RECIPIENT_RATES:any;
-let BURN_ACCOUNT:any;
+let spCoinLogger;
+let SPONSOR_ACCOUNT_SIGNERS;
+let SPONSOR_ACCOUNT_KEYS;
+let RECIPIENT_ACCOUNT_KEYS; 
+let RECIPIENT_RATES;
+let BURN_ACCOUNT;
 
 describe("spCoinContract", function () {
   beforeEach(async () => {
@@ -347,7 +348,7 @@ describe("spCoinContract", function () {
     dateInSeconds() - year
   );
 
-    // await spCoinAddMethods.addBackDatedSponsorship(
+  // await spCoinAddMethods.addBackDatedSponsorship(
   //   SPONSOR_ACCOUNT_SIGNERS[0],   // DEPOSIT ACCOUNT
   //   RECIPIENT_ACCOUNT_KEYS[1],
   //   RECIPIENT_RATES[5],
