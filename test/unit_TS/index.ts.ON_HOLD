@@ -1,6 +1,6 @@
 import { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year, month, millennium } from "../../spcoin-access-modules/lib/utils/dateTime"; 
 // import { SpCoinClassMethods } from "../../spcoin-access-modules/lib/spCoinClassMethods"; 
-import { SpCoinClassMethods } from "../../spcoin-access-modules/spCoin_TS_Methods"; 
+import { SpCoinClassMethods } from "../../spcoin-access-modules/lib/spCoin_JS_Methods"; 
 import { deploySpCoinContract } from "./lib.ts/hardhatSetup/deployContract";
 import { HhClassMethods } from "./lib.ts/hardhatSetup/hhClassMethods";
 
