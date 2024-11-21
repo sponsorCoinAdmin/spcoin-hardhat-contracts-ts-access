@@ -1,19 +1,21 @@
 import { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year, month, millennium } from "../../spcoin-access-modules/lib/utils/dateTime"; 
 // import { SpCoinClassMethods } from "../../spcoin-access-modules/lib/spCoinClassMethods"; 
-import { SpCoinClassMethods } from "../../spcoin-access-modules/spCoin_JS_Methods"; 
-import { deployWETH9Contract } from "./lib.ts/hardhatSetup/deployContract";
+import { deploySpCoinContract } from "./lib.ts/hardhatSetup/deployContract";
 import { HhClassMethods } from "./lib.ts/hardhatSetup/hhClassMethods";
 
-let wethContractDeployed:any;
+let spCoinContractDeployed:any;
+let hhClassMethods:any;
 
-describe("wethContract", function () {
+describe("spCoin Contract Deployed", function () {
   beforeEach(async () => {
-    wethContractDeployed = await deployWETH9Contract();
+    spCoinContractDeployed = await deploySpCoinContract();
+    hhClassMethods = new HhClassMethods();
+    await hhClassMethods.initHHAccounts()
   });
 
- it("2. <JAVA SCRIPT> VALIDATE WETH CONTRACT DEPLOYED", async function () {
-
-  console.log(`wethContractDeployed = ${JSON.stringify(wethContractDeployed,null,2)}`)
+  it("2. <JAVA SCRIPT> VALIDATE SPCOIN CONTRACT DEPLOYED", async function () {
+    // console.log(`spCoinContractDeployed = ${JSON.stringify(spCoinContractDeployed,null,2
+    hhClassMethods.dump()
    });
 /**/
 });

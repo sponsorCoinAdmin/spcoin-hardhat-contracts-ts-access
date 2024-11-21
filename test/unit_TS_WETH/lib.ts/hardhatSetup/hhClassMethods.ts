@@ -13,7 +13,7 @@ export class HhClassMethods {
     this.SPONSOR_ACCOUNT_KEYS;
     this.RECIPIENT_ACCOUNT_KEYS;
     this.AGENT_ACCOUNT_KEYS;
-    this.RECIPIENT_RATES = this.AGENT_RATES = [0,1,2,3,4,5,6,7,8,9,10];
+    this.RECIPIENT_RATES = this.AGENT_RATES = this.RATES = [0,1,2,3,4,5,6,7,8,9,10];
     this.BURN_ACCOUNT = "0x0000000000000000000000000000000000000000";
   }
 
@@ -33,13 +33,30 @@ export class HhClassMethods {
     // console.log(`hhClassMethods = ${JSON.stringify(hhClassMethods)}`)
     // this.dump();
    }
+
+  dumpArray = (element:string, arr:any[]) => {
+    console.log(`Dumping Array = ${element}S`)
+    arr.forEach((val, i) => {
+      console.log(`${element}[${i}] = ${arr[i]}`);
+    });
+  }
+
+  dumpSigners = () => {
+    this.dumpArray("SPONSOR_ACCOUNT_SIGNER", this.SPONSOR_ACCOUNT_SIGNERS)
+  }
+
+  dumpAccountKeys = () => {
+    this.dumpArray("SPONSOR_ACCOUNT_KEY", this.SPONSOR_ACCOUNT_KEYS)
+  }
+
+  dumpRates = () => {
+    this.dumpArray("RATE", this.RATES)
+  }
   
   dump = () => {
-    console.log('CLASS HhClassMethods() DUMP}')
-    console.log(`SPONSOR_ACCOUNT_SIGNERS = ${this.SPONSOR_ACCOUNT_SIGNERS}`)
-    console.log(`SPONSOR_ACCOUNT_KEYS = ${this.SPONSOR_ACCOUNT_KEYS}`)
-    console.log(`RATES = ${this.RATES}`)
-    console.log(`BURN_ACCOUNT = ${this.BURN_ACCOUNT}`)
+    // this.dumpSigners();
+    this.dumpAccountKeys();
+    this.dumpRates();
   }
 }
 
