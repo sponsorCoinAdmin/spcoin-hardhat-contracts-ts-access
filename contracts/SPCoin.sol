@@ -19,7 +19,7 @@ contract SPCoin is Token{
         // console.log("balanceOf[msg.sender] = ", balanceOf[msg.sender]);
     }
 
-    /*
+/*
     function init() public {
         initToken(defaultName,  defaultSymbol, defaultDecimals, defaultTotalSupply);
     }
