@@ -65,38 +65,57 @@ describe("WETH9 Contract Deployed", function () {
     assert.equal(account5Balance, initialBalance);
   });
 
-  it("3. <TYPE SCRIPT> Wrap ETH Using Sinner account[0]", async function () {
-    const initialBalance:bigint = 10000000000000000000000n;
-    let signerBalance:bigint = await ethers.provider.getBalance(signer.address);
+  xit("3. <TYPE SCRIPT> Wrap ETH Using Deployed WETH Contract with Sinner account[0]", async function () {
     const signedWeth = WETH9ContractDeployed.connect(signer);
-    const weth9_Address = WETH9ContractDeployed.address;
-    const wrapEthAmount = "2";
-    const wrapWeiAmount = 5;
+    const wrapEthAmount = ethers.utils.parseEther("2");
+    const wrapWeiAmount = "5";
 
-    const weth9ABI = await getDeployedArtifactsAbi("WETH9");
-    const WETH9Contract = new ethers.Contract(weth9_Address, weth9ABI, signer);
+    let beforeEthBalance:bigint = await ethers.provider.getBalance(signer.address);
+    let signerWethBalance = await signedWeth.balanceOf(signer.address)
 
-    // console.log(`weth9_Address = ${weth9_Address}`);
-    // console.log(`weth9ABI      = ${JSON.stringify(weth9ABI,null,2)}`);
+    console.log(`1. BEFORE WRAP: signer(${signer.address}) ETH Balance = ${beforeEthBalance}`);
+    console.log(`2. BEFORE WRAP WETH9Contract signer($signerWethBalance}) WETH Balance = ${signerWethBalance}`);
 
-    let signerWethBalance = await WETH9Contract.balanceOf(signer.address)
-    console.log(`1. BEFORE WRAP WETH9Contract signer($signerWethBalance}) Balance = ${signerWethBalance}`);
-
-    console.log(`2. BEFORE WRAP: signer(${signer.address}) Balance = ${signerBalance}`);
-    // await this.WETH9ContractDeployed.connect(this.signer).deposit(account5, 1);
-
-    let tx = await WETH9Contract.deposit({value: ethers.utils.parseEther(wrapEthAmount)})
-    tx = await WETH9Contract.deposit({value: wrapWeiAmount})
+    let tx = await signedWeth.deposit({value: wrapEthAmount})
     // console.log(`tx = ${JSON.stringify(tx,null,2)}`);
-    // await this.WETH9ContractDeployed.deposit(account5, 1);
-    signerBalance = await ethers.provider.getBalance(signer.address);
-    console.log(`3. AFTER WRAP: signer(${signer.address}) Balance = ${signerBalance}`);
+    tx = await signedWeth.deposit({value: wrapWeiAmount})
+    // console.log(`tx = ${JSON.stringify(tx,null,2)}`);
 
-    signerWethBalance = await WETH9Contract.balanceOf(signer.address)
-    console.log(`4. AFTER WRAP WETH9Contract signer($signerWethBalance}) Balance = ${signerWethBalance}`);
+    signerWethBalance = await signedWeth.balanceOf(signer.address)
+    const afterEthBalance = await ethers.provider.getBalance(signer.address);
 
-    // let xxx = signerWethBalance+1
-    // assert.equal(xxx, signerWethBalance);
-  });   
+    console.log(`3. AFTER WRAP WETH9Contract signer($signerWethBalance}) WETH Balance = ${signerWethBalance}`);
+    console.log(`4. AFTER WRAP: signer(${signer.address}) ETH Balance = ${afterEthBalance}`);
+    console.log(`5. AFTER WRAP: Gas Fees = ${(beforeEthBalance - afterEthBalance) - signerWethBalance}`);
+  });
+
+  it("4. <TYPE SCRIPT> Wrap ETH Using Deployed WETH Contract with Sinner account[0]", async function () {
+    const weth9_Address = WETH9ContractDeployed.address;
+    const weth9ABI = await getDeployedArtifactsAbi("WETH9");
+    const signedWeth = new ethers.Contract(weth9_Address, weth9ABI, signer);
+
+    const wrapEthAmount = ethers.utils.parseEther("2");
+    const wrapWeiAmount = "5";
+
+    let beforeEthBalance:bigint = await ethers.provider.getBalance(signer.address);
+    let signerWethBalance = await signedWeth.balanceOf(signer.address)
+
+    console.log(`1. BEFORE WRAP: signer(${signer.address}) ETH Balance = ${beforeEthBalance}`);
+    console.log(`2. BEFORE WRAP WETH9Contract signer($signerWethBalance}) WETH Balance = ${signerWethBalance}`);
+
+    let tx = await signedWeth.deposit({value: wrapEthAmount})
+    // console.log(`tx = ${JSON.stringify(tx,null,2)}`);
+    tx = await signedWeth.deposit({value: wrapWeiAmount})
+    // console.log(`tx = ${JSON.stringify(tx,null,2)}`);
+
+    signerWethBalance = await signedWeth.balanceOf(signer.address)
+    const afterEthBalance = await ethers.provider.getBalance(signer.address);
+
+    console.log(`3. AFTER WRAP WETH9Contract signer($signerWethBalance}) WETH Balance = ${signerWethBalance}`);
+    console.log(`4. AFTER WRAP: signer(${signer.address}) ETH Balance = ${afterEthBalance}`);
+    console.log(`5. AFTER WRAP: Gas Fees = ${(beforeEthBalance - afterEthBalance) - signerWethBalance}`);
+  });
+
+  
 /**/
 });
