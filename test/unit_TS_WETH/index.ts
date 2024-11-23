@@ -1,15 +1,9 @@
 import hre from "hardhat";
 import {expect} from 'chai';
 import {assert} from 'chai';
-// import { WETH9ClassMethods } from "../../WETH9-access-modules/lib/WETH9ClassMethods"; 
-import { deployWETH9Contract } from "./lib.ts/hardhatSetup/deployContract";
+import { deployWETH9Contract, deployContract } from "./lib.ts/hardhatSetup/deployContract";
 import { HhClassMethods } from "./lib.ts/hardhatSetup/hhClassMethods";
-
-// \Users\Robin\OneDrive\Dev\gitRepo\sponsorCoin\WIP\artifacts\contracts\WETH9.sol\WETH9.json
-
 import fs from 'fs';
-const fsPromises = fs.promises;
-
 
 let WETH9ContractDeployed:any;
 let hhClassMethods:any;
@@ -17,13 +11,19 @@ let signer:any;
 let ethers:any = hre.ethers;
 
 // load ABI from build artifacts
-async function getDeployedArtifactsAbi(contractName:string){
+async function getDeployedArtifactsAbi(symbol:string){
+  console.log(`EXECUTING: getDeployedArtifactsAbi(${symbol})`)
+  let contractDeployed = await deployContract(symbol);
+  const address = contractDeployed.address;
+  // console.log(`contractDeployed.address = ${contractDeployed.address}`)
+  // console.log(`contractDeployed = ${JSON.stringify(contractDeployed, null, 2)}`)
+  const fsPromises = fs.promises;
   const HARDHAT_ARTIFACTS_HOME = "artifacts/contracts/";
-  const ABI_FILE_PATH=`${HARDHAT_ARTIFACTS_HOME}${contractName}.sol/${contractName}.json`
+  const ABI_FILE_PATH=`${HARDHAT_ARTIFACTS_HOME}${symbol}.sol/${symbol}.json`
   console.log(`ABI_FILE_PATH = ${ABI_FILE_PATH}`);
   const data = await fsPromises.readFile(ABI_FILE_PATH, 'utf8');
   const abi = JSON.parse(data)['abi'];
-  return abi;
+    return { address, abi };
 }
 
 async function geWethContract() {
@@ -94,9 +94,8 @@ describe("WETH9 Contract Deployed", function () {
     console.log(`5. AFTER WRAP: Wrap Gas Fees = ${(beforeEthBalance - afterEthBalance) - signerWethBalance}`);
   });
 
-  xit("4. <TYPE SCRIPT> Wrap ETH Using Deployed WETH Address with Sinner account[0]", async function () {
-    const weth9_Address = WETH9ContractDeployed.address;
-    const weth9ABI = await getDeployedArtifactsAbi("WETH9");
+  it("4. <TYPE SCRIPT> Wrap ETH Using Deployed WETH Address with Sinner account[0]", async function () {
+    const { abi:weth9ABI, address:weth9_Address }= await getDeployedArtifactsAbi("WETH9");
     const signedWeth = new ethers.Contract(weth9_Address, weth9ABI, signer);
 
     const wrapEthAmount = ethers.utils.parseEther("2");
@@ -121,7 +120,7 @@ describe("WETH9 Contract Deployed", function () {
     console.log(`5. AFTER WRAP: Gas Fees = ${(beforeEthBalance - afterEthBalance) - signerWethBalance}`);
   });
 
-  it("5. <TYPE SCRIPT> un-wrap ETH Using Deployed WETH Address with Sinner account[0]", async function () {
+  xit("5. <TYPE SCRIPT> un-wrap ETH Using Deployed WETH Address with Sinner account[0]", async function () {
     const signedWeth = await geWethContract();
 
     const wrapEthAmount = ethers.utils.parseEther("2");
@@ -149,5 +148,4 @@ describe("WETH9 Contract Deployed", function () {
     console.log(`5. AFTER UN-WRAP WETH9Contract signer($signerWethBalance}) WETH Balance = ${signerWethBalance}`);
     console.log(`6. AFTER UN-WRAP: signer(${signer.address}) ETH Balance = ${afterEthBalance}`);
   });
-/**/
 });

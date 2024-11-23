@@ -12,7 +12,7 @@ export const deployWETH9Contract = async () => {
   return weth9ContractDeployed;
 }
 
-const deployContract = async (symbol:any) => {
+export const deployContract = async (symbol:any) => {
   //setLogMode(LOG_MODE.LOG_SETUP, true);
   // console.log("AAAA spCoinContractDeployed = await spCoinContract.deploy() AAAAAAAAAAAAAAAAAAAAAA");
 
@@ -23,9 +23,3 @@ const deployContract = async (symbol:any) => {
   return contractDeployed;
 }
 
-module.exports = {
-  deployContract,
-  deploySpCoinContract,
-  deployWETH9Contract,
-  spCoinContractDeployed
-}

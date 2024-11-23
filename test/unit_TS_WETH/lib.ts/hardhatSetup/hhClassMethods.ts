@@ -60,10 +60,6 @@ export class HhClassMethods {
   }
 }
 
-module.exports = {
-  HhClassMethods
-}
-
 ///// TEST ACCOUNT REFERENCES ////
 /*
 const TEST_HH_ACCOUNT_LIST = [
