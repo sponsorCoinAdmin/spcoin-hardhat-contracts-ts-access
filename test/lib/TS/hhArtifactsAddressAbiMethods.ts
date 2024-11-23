@@ -1,5 +1,5 @@
 import hre from "hardhat";
-import { deployWETH9Contract, deployContract } from "../../../unit_JS/lib.js/hardhatSetup/deployContract";
+import { deployWETH9Contract, deployContract } from "./deployContract";
 import fs from 'fs';
 let ethers:any = hre.ethers;
 

@@ -1,9 +1,7 @@
 import { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year, month, millennium } from "../../spcoin-access-modules/lib/utils/dateTime"; 
-// import { SpCoinClassMethods } from "../../spcoin-access-modules/lib/spCoinClassMethods"; 
-// import { SpCoinClassMethods } from "../../spcoin-access-modules/spCoin_JS_Methods"; 
 import { SpCoinClassMethods } from "@sponsorcoin/spcoin-access-modules/spCoin_JS_Methods"; 
-import { deploySpCoinContract } from "./lib.ts/hardhatSetup/deployContract";
-import { HHAccountRateMethods } from "./lib.ts/hardhatSetup/hHAccountRateMethods";
+import { deploySpCoinContract } from "../lib/TS/deployContract";
+import { HHAccountRateMethods } from "../lib/TS/hhAccountRateMethods";
 
 let spCoinContractDeployed;
 let spCoinClassMethods;
@@ -28,7 +26,7 @@ describe("spCoinContract", function () {
     spCoinLogger = spCoinClassMethods.spCoinLogger;
     hHAccountRateMethods = new HHAccountRateMethods();
     await hHAccountRateMethods.initHHAccounts()
-    hHAccountRateMethods.dump()
+    hHAccountRateMethods.dump
     SPONSOR_ACCOUNT_SIGNERS = hHAccountRateMethods.SPONSOR_ACCOUNT_SIGNERS;
     RECIPIENT_ACCOUNT_KEYS = hHAccountRateMethods.RECIPIENT_ACCOUNT_KEYS;
     SPONSOR_ACCOUNT_KEYS = hHAccountRateMethods.SPONSOR_ACCOUNT_KEYS;

@@ -1,8 +1,7 @@
 const { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year, month , millennium } = require("../../spcoin-access-modules/lib/utils/dateTime"); 
-// const { SpCoinClassMethods } = require("../../spcoin-access-modules/spCoin_JS_Methods"); 
 const { SpCoinClassMethods } = require("@sponsorcoin/spcoin-access-modules/spCoin_JS_Methods"); 
-const { deploySpCoinContract } = require("./lib.js/hardhatSetup/deployContract");
-const { HHAccountRateMethods } = require("./lib.js/hardhatSetup/hHAccountRateMethods");
+const { deploySpCoinContract } = require("../lib/JS/deployContract");
+const { HHAccountRateMethods } = require("../lib/JS/hhAccountRateMethods");
 
 let spCoinContractDeployed;
 let spCoinClassMethods;
