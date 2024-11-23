@@ -5,7 +5,6 @@ import {assert} from 'chai';
 import { deployWETH9Contract } from "./lib.ts/hardhatSetup/deployContract";
 import { HhClassMethods } from "./lib.ts/hardhatSetup/hhClassMethods";
 
-
 // \Users\Robin\OneDrive\Dev\gitRepo\sponsorCoin\WIP\artifacts\contracts\WETH9.sol\WETH9.json
 
 import fs from 'fs';
@@ -15,7 +14,6 @@ const fsPromises = fs.promises;
 let WETH9ContractDeployed:any;
 let hhClassMethods:any;
 let signer:any;
-let provider = hre.ethers.getDefaultProvider("mainnet");
 let ethers:any = hre.ethers;
 
 // load ABI from build artifacts
@@ -26,6 +24,14 @@ async function getDeployedArtifactsAbi(contractName:string){
   const data = await fsPromises.readFile(ABI_FILE_PATH, 'utf8');
   const abi = JSON.parse(data)['abi'];
   return abi;
+}
+
+async function geWethContract() {
+  WETH9ContractDeployed = await deployWETH9Contract();
+  const weth9_Address = WETH9ContractDeployed.address;
+  const weth9ABI = await getDeployedArtifactsAbi("WETH9");
+  const signedWeth = new ethers.Contract(weth9_Address, weth9ABI, signer);
+return signedWeth;
 }
 
 
@@ -40,7 +46,6 @@ describe("WETH9 Contract Deployed", function () {
   xit("1. <TYPE SCRIPT> VALIDATE HARDHAT IS ACTIVE WITH ACCOUNTS", async function () {
     hhClassMethods.dump()
     console.log(`signer.address = ${signer.address}`)
-    // console.log("provider = " + JSON.stringify(provider,null,2));
 
     // Validate 20 HardHat Accounts created
     assert.equal(hhClassMethods.SPONSOR_ACCOUNT_SIGNERS.length, 20);
@@ -86,10 +91,10 @@ describe("WETH9 Contract Deployed", function () {
 
     console.log(`3. AFTER WRAP WETH9Contract signer($signerWethBalance}) WETH Balance = ${signerWethBalance}`);
     console.log(`4. AFTER WRAP: signer(${signer.address}) ETH Balance = ${afterEthBalance}`);
-    console.log(`5. AFTER WRAP: Gas Fees = ${(beforeEthBalance - afterEthBalance) - signerWethBalance}`);
+    console.log(`5. AFTER WRAP: Wrap Gas Fees = ${(beforeEthBalance - afterEthBalance) - signerWethBalance}`);
   });
 
-  it("4. <TYPE SCRIPT> Wrap ETH Using Deployed WETH Contract with Sinner account[0]", async function () {
+  xit("4. <TYPE SCRIPT> Wrap ETH Using Deployed WETH Address with Sinner account[0]", async function () {
     const weth9_Address = WETH9ContractDeployed.address;
     const weth9ABI = await getDeployedArtifactsAbi("WETH9");
     const signedWeth = new ethers.Contract(weth9_Address, weth9ABI, signer);
@@ -116,6 +121,33 @@ describe("WETH9 Contract Deployed", function () {
     console.log(`5. AFTER WRAP: Gas Fees = ${(beforeEthBalance - afterEthBalance) - signerWethBalance}`);
   });
 
-  
+  it("5. <TYPE SCRIPT> un-wrap ETH Using Deployed WETH Address with Sinner account[0]", async function () {
+    const signedWeth = await geWethContract();
+
+    const wrapEthAmount = ethers.utils.parseEther("2");
+
+    let beforeEthBalance:bigint = await ethers.provider.getBalance(signer.address);
+    let signerWethBalance = await signedWeth.balanceOf(signer.address)
+
+    console.log(`1. BEFORE WRAP: signer(${signer.address}) ETH Balance = ${beforeEthBalance}`);
+    console.log(`2. BEFORE WRAP WETH9Contract signer($signerWethBalance}) WETH Balance = ${signerWethBalance}`);
+
+    let tx = await signedWeth.deposit({value: wrapEthAmount})
+    // console.log(`tx = ${JSON.stringify(tx,null,2)}`);
+
+    signerWethBalance = await signedWeth.balanceOf(signer.address)
+    let afterEthBalance = await ethers.provider.getBalance(signer.address);
+
+    console.log(`3. AFTER WRAP WETH9Contract signer($signerWethBalance}) WETH Balance = ${signerWethBalance}`);
+    console.log(`4. AFTER WRAP: signer(${signer.address}) ETH Balance = ${afterEthBalance}`);
+    console.log(`5. AFTER WRAP: Wrap Gas Fees = ${(beforeEthBalance - afterEthBalance) - signerWethBalance}`);
+
+    await signedWeth.withdraw(ethers.utils.parseEther("1"));
+    signerWethBalance = await signedWeth.balanceOf(signer.address)
+    afterEthBalance = await ethers.provider.getBalance(signer.address);
+
+    console.log(`5. AFTER UN-WRAP WETH9Contract signer($signerWethBalance}) WETH Balance = ${signerWethBalance}`);
+    console.log(`6. AFTER UN-WRAP: signer(${signer.address}) ETH Balance = ${afterEthBalance}`);
+  });
 /**/
 });
