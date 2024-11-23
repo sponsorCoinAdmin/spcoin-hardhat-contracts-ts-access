@@ -1,4 +1,4 @@
-class HhClassMethods {
+class HHAccountRateMethods {
   constructor() {
     this.SPONSOR_ACCOUNT_SIGNERS;
     this.SPONSOR_ACCOUNT_KEYS;
@@ -20,13 +20,13 @@ class HhClassMethods {
   };
 
   initSPCoinHHTest = async () => {
-    const hhClassMethods = await this.initHHAccounts();
-    // console.log(`hhClassMethods = ${JSON.stringify(hhClassMethods)}`)
+    const hHAccountRateMethods = await this.initHHAccounts();
+    // console.log(`hHAccountRateMethods = ${JSON.stringify(hHAccountRateMethods)}`)
     // this.dump();
    }
   
   dump = () => {
-    console.log('CLASS HhClassMethods() DUMP}')
+    console.log('CLASS HHAccountRateMethods() DUMP}')
     console.log(`SPONSOR_ACCOUNT_SIGNERS = ${this.SPONSOR_ACCOUNT_SIGNERS}`)
     console.log(`SPONSOR_ACCOUNT_KEYS = ${this.SPONSOR_ACCOUNT_KEYS}`)
     console.log(`RATES = ${this.RATES}`)
@@ -35,7 +35,7 @@ class HhClassMethods {
 }
 
 module.exports = {
-  HhClassMethods
+  HHAccountRateMethods
 }
 
 ///// TEST ACCOUNT REFERENCES ////

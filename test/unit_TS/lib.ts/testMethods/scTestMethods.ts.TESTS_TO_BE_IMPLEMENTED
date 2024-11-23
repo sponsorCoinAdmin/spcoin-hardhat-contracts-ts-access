@@ -1,5 +1,5 @@
 import { SpCoinClassMethods } from "../../../../spcoin-access-modules/lib/spCoinClassMethods";
-import { HhClassMethods } from "../hardhatSetup/hhClassMethods";
+import { HHAccountRateMethods } from "../hardhatSetup/hHAccountRateMethods";
 import { deploySpCoinContract } from "../hardhatSetup/deployContract";
 
 let spCoinContractDeployed:any;
@@ -9,7 +9,7 @@ let spCoinRewardsMethods:any;
 let spCoinReadMethods:any;
 let spCoinDeleteMethods:any;
 let spCoinLogger:any;
-let hhClassMethods:any;
+let hHAccountRateMethods:any;
 
 const initSpCoinMethods = async () => {
   spCoinContractDeployed = await deploySpCoinContract();
@@ -18,26 +18,26 @@ const initSpCoinMethods = async () => {
   spCoinRewardsMethods = spCoinClassMethods.spCoinRewardsMethods;
   spCoinReadMethods = spCoinClassMethods.spCoinReadMethods;
   spCoinLogger = spCoinClassMethods.spCoinLogger;
-  hhClassMethods = new HhClassMethods();
-  await hhClassMethods.initHHAccounts()
-  hhClassMethods.dump()
-  SPONSOR_ACCOUNT_SIGNERS = hhClassMethods.SPONSOR_ACCOUNT_SIGNERS;
-  RECIPIENT_ACCOUNT_KEYS = hhClassMethods.RECIPIENT_ACCOUNT_KEYS;
-  SPONSOR_ACCOUNT_KEYS = hhClassMethods.SPONSOR_ACCOUNT_KEYS;
-  RECIPIENT_RATES = hhClassMethods.RECIPIENT_RATES;
-  BURN_ACCOUNT = hhClassMethods.BURN_ACCOUNT;
+  hHAccountRateMethods = new HHAccountRateMethods();
+  await hHAccountRateMethods.initHHAccounts()
+  hHAccountRateMethods.dump()
+  SPONSOR_ACCOUNT_SIGNERS = hHAccountRateMethods.SPONSOR_ACCOUNT_SIGNERS;
+  RECIPIENT_ACCOUNT_KEYS = hHAccountRateMethods.RECIPIENT_ACCOUNT_KEYS;
+  SPONSOR_ACCOUNT_KEYS = hHAccountRateMethods.SPONSOR_ACCOUNT_KEYS;
+  RECIPIENT_RATES = hHAccountRateMethods.RECIPIENT_RATES;
+  BURN_ACCOUNT = hHAccountRateMethods.BURN_ACCOUNT;
 }
 
 const getTestHHAccountKey = async (idx: number) => {
 
-  let hhClassMethods = new HhClassMethods();
-  await hhClassMethods.initHHAccounts();
-  hhClassMethods.dump();
-  const SPONSOR_ACCOUNT_SIGNERS = hhClassMethods.SPONSOR_ACCOUNT_SIGNERS;
-  const RECIPIENT_ACCOUNT_KEYS = hhClassMethods.RECIPIENT_ACCOUNT_KEYS;
-  const SPONSOR_ACCOUNT_KEYS = hhClassMethods.SPONSOR_ACCOUNT_KEYS;
-  const RECIPIENT_RATES = hhClassMethods.RECIPIENT_RATES;
-  const BURN_ACCOUNT = hhClassMethods.BURN_ACCOUNT;
+  let hHAccountRateMethods = new HHAccountRateMethods();
+  await hHAccountRateMethods.initHHAccounts();
+  hHAccountRateMethods.dump();
+  const SPONSOR_ACCOUNT_SIGNERS = hHAccountRateMethods.SPONSOR_ACCOUNT_SIGNERS;
+  const RECIPIENT_ACCOUNT_KEYS = hHAccountRateMethods.RECIPIENT_ACCOUNT_KEYS;
+  const SPONSOR_ACCOUNT_KEYS = hHAccountRateMethods.SPONSOR_ACCOUNT_KEYS;
+  const RECIPIENT_RATES = hHAccountRateMethods.RECIPIENT_RATES;
+  const BURN_ACCOUNT = hHAccountRateMethods.BURN_ACCOUNT;
 
   return RECIPIENT_ACCOUNT_KEYS[idx];
 }

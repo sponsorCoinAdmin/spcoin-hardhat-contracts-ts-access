@@ -1,63 +1,38 @@
 import hre from "hardhat";
-import {expect} from 'chai';
-import {assert} from 'chai';
+import { expect } from 'chai';
+import { assert } from 'chai';
 import { deployWETH9Contract, deployContract } from "./lib.ts/hardhatSetup/deployContract";
-import { HhClassMethods } from "./lib.ts/hardhatSetup/hhClassMethods";
-import fs from 'fs';
+import { HHAccountRateMethods } from "./lib.ts/hardhatSetup/hhAccountRateMethods";
+import { getDeployedArtifactsAbi, geWethContract } from "./lib.ts/hardhatSetup/hhArtifactsAddressAbiMethods";;
 
 let WETH9ContractDeployed:any;
-let hhClassMethods:any;
+let hHAccountRateMethods:any;
 let signer:any;
 let ethers:any = hre.ethers;
-
-// load ABI from build artifacts
-async function getDeployedArtifactsAbi(symbol:string){
-  console.log(`EXECUTING: getDeployedArtifactsAbi(${symbol})`)
-  let contractDeployed = await deployContract(symbol);
-  const address = contractDeployed.address;
-  // console.log(`contractDeployed.address = ${contractDeployed.address}`)
-  // console.log(`contractDeployed = ${JSON.stringify(contractDeployed, null, 2)}`)
-  const fsPromises = fs.promises;
-  const HARDHAT_ARTIFACTS_HOME = "artifacts/contracts/";
-  const ABI_FILE_PATH=`${HARDHAT_ARTIFACTS_HOME}${symbol}.sol/${symbol}.json`
-  console.log(`ABI_FILE_PATH = ${ABI_FILE_PATH}`);
-  const data = await fsPromises.readFile(ABI_FILE_PATH, 'utf8');
-  const abi = JSON.parse(data)['abi'];
-    return { address, abi };
-}
-
-async function geWethContract() {
-  WETH9ContractDeployed = await deployWETH9Contract();
-  const weth9_Address = WETH9ContractDeployed.address;
-  const weth9ABI = await getDeployedArtifactsAbi("WETH9");
-  const signedWeth = new ethers.Contract(weth9_Address, weth9ABI, signer);
-return signedWeth;
-}
-
 
 describe("WETH9 Contract Deployed", function () {
   beforeEach(async () => {
     WETH9ContractDeployed = await deployWETH9Contract();
     signer = WETH9ContractDeployed.signer;
-    hhClassMethods = new HhClassMethods();
-    await hhClassMethods.initHHAccounts()
-  });
+    hHAccountRateMethods = new HHAccountRateMethods();
+    await hHAccountRateMethods.initHHAccounts()
+});
 
   xit("1. <TYPE SCRIPT> VALIDATE HARDHAT IS ACTIVE WITH ACCOUNTS", async function () {
-    hhClassMethods.dump()
+    hHAccountRateMethods.dump()
     console.log(`signer.address = ${signer.address}`)
 
     // Validate 20 HardHat Accounts created
-    assert.equal(hhClassMethods.SPONSOR_ACCOUNT_SIGNERS.length, 20);
+    assert.equal(hHAccountRateMethods.SPONSOR_ACCOUNT_SIGNERS.length, 20);
     // Validate Active signer Account is Account 0
-    assert.equal(hhClassMethods.SPONSOR_ACCOUNT_SIGNERS[0], WETH9ContractDeployed.signer.address.toLowerCase());
+    assert.equal(hHAccountRateMethods.SPONSOR_ACCOUNT_SIGNERS[0], WETH9ContractDeployed.signer.address.toLowerCase());
     // Validate the Last Account
-    assert.equal(hhClassMethods.SPONSOR_ACCOUNT_SIGNERS[19], "0x8626f6940e2eb28930efb4cef49b2d1f2c9c1199");
+    assert.equal(hHAccountRateMethods.SPONSOR_ACCOUNT_SIGNERS[19], "0x8626f6940e2eb28930efb4cef49b2d1f2c9c1199");
   });
 
   xit("2. <TYPE SCRIPT> VALIDATE DEPLOYED CONTRACT BY GETTING SIGNER and TEST ACCOUNT[5] BALANCE_OF", async function () {
     const initialBalance:bigint = 10000000000000000000000n;
-    const account5 = hhClassMethods.SPONSOR_ACCOUNT_SIGNERS[5];
+    const account5 = hHAccountRateMethods.SPONSOR_ACCOUNT_SIGNERS[5];
     const signerBalance:bigint = await ethers.provider.getBalance(signer.address);
     const account5Balance:bigint = await ethers.provider.getBalance(account5);
 
@@ -121,7 +96,7 @@ describe("WETH9 Contract Deployed", function () {
   });
 
   xit("5. <TYPE SCRIPT> un-wrap ETH Using Deployed WETH Address with Sinner account[0]", async function () {
-    const signedWeth = await geWethContract();
+    const signedWeth = await geWethContract(signer);
 
     const wrapEthAmount = ethers.utils.parseEther("2");
 

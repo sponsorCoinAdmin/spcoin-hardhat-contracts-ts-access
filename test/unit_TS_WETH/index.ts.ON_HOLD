@@ -3,7 +3,7 @@ import {expect} from 'chai';
 import {assert} from 'chai';
 // import { WETH9ClassMethods } from "../../WETH9-access-modules/lib/WETH9ClassMethods"; 
 import { deployWETH9Contract } from "./lib.ts/hardhatSetup/deployContract";
-import { HhClassMethods } from "./lib.ts/hardhatSetup/hhClassMethods";
+import { HHAccountRateMethods } from "./lib.ts/hardhatSetup/hHAccountRateMethods";
 
 // \Users\Robin\OneDrive\Dev\gitRepo\sponsorCoin\WIP\artifacts\contracts\WETH9.sol\WETH9.json
 
@@ -12,7 +12,7 @@ const fsPromises = fs.promises;
 
 
 let WETH9ContractDeployed:any;
-let hhClassMethods:any;
+let hHAccountRateMethods:any;
 let signer:any;
 let ethers:any = hre.ethers;
 
@@ -39,25 +39,25 @@ describe("WETH9 Contract Deployed", function () {
   beforeEach(async () => {
     WETH9ContractDeployed = await deployWETH9Contract();
     signer = WETH9ContractDeployed.signer;
-    hhClassMethods = new HhClassMethods();
-    await hhClassMethods.initHHAccounts()
+    hHAccountRateMethods = new HHAccountRateMethods();
+    await hHAccountRateMethods.initHHAccounts()
   });
 
   xit("1. <TYPE SCRIPT> VALIDATE HARDHAT IS ACTIVE WITH ACCOUNTS", async function () {
-    hhClassMethods.dump()
+    hHAccountRateMethods.dump()
     console.log(`signer.address = ${signer.address}`)
 
     // Validate 20 HardHat Accounts created
-    assert.equal(hhClassMethods.SPONSOR_ACCOUNT_SIGNERS.length, 20);
+    assert.equal(hHAccountRateMethods.SPONSOR_ACCOUNT_SIGNERS.length, 20);
     // Validate Active signer Account is Account 0
-    assert.equal(hhClassMethods.SPONSOR_ACCOUNT_SIGNERS[0], WETH9ContractDeployed.signer.address.toLowerCase());
+    assert.equal(hHAccountRateMethods.SPONSOR_ACCOUNT_SIGNERS[0], WETH9ContractDeployed.signer.address.toLowerCase());
     // Validate the Last Account
-    assert.equal(hhClassMethods.SPONSOR_ACCOUNT_SIGNERS[19], "0x8626f6940e2eb28930efb4cef49b2d1f2c9c1199");
+    assert.equal(hHAccountRateMethods.SPONSOR_ACCOUNT_SIGNERS[19], "0x8626f6940e2eb28930efb4cef49b2d1f2c9c1199");
   });
 
   xit("2. <TYPE SCRIPT> VALIDATE DEPLOYED CONTRACT BY GETTING SIGNER and TEST ACCOUNT[5] BALANCE_OF", async function () {
     const initialBalance:bigint = 10000000000000000000000n;
-    const account5 = hhClassMethods.SPONSOR_ACCOUNT_SIGNERS[5];
+    const account5 = hHAccountRateMethods.SPONSOR_ACCOUNT_SIGNERS[5];
     const signerBalance:bigint = await ethers.provider.getBalance(signer.address);
     const account5Balance:bigint = await ethers.provider.getBalance(account5);
 
