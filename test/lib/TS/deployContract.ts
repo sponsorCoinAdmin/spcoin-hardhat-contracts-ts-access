@@ -6,7 +6,6 @@ let ethers:any = hre.ethers;
 
 const deployContract = async (symbol:any) => {
   //setLogMode(LOG_MODE.LOG_SETUP, true);
-  // console.log("AAAA spCoinContractDeployed = await spCoinContract.deploy() AAAAAAAAAAAAAAAAAAAAAA");
 
   let contract = await hre.ethers.getContractFactory(symbol);
   const contractDeployed = await contract.deploy();
@@ -41,16 +40,16 @@ async function getDeployedArtifactsAbiAddress(symbol:string){
 }
 
 async function getWeth9Contract(signer:any) {
-  const signedWeth = getNewDeployedContract(signer, "WETH9");
+  const signedWeth = getNewContract(signer, "WETH9");
   return signedWeth;
 }
 
 async function getSpCoinContract(signer:any) {
-  const signedWeth = getNewDeployedContract(signer, "SPCoin");
+  const signedWeth = getNewContract(signer, "SPCoin");
   return signedWeth;
 }
 
-async function getNewDeployedContract(signer:any, symbol:string) {
+async function getNewContract(signer:any, symbol:string) {
   await deployContract(symbol);
   const signedWeth = getDeployedContract(signer, symbol);
   return signedWeth;
@@ -67,7 +66,7 @@ export {  deployContract,
           deployWETH9Contract,
           getDeployedArtifactsAbiAddress,
           getDeployedContract,
-          getNewDeployedContract,
+          getNewContract,
           getSpCoinContract,
           getWeth9Contract
   }
