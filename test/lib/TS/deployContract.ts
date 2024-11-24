@@ -41,16 +41,16 @@ async function getDeployedArtifactsAbiAddress(symbol:string){
 }
 
 async function getWeth9Contract(signer:any) {
-  const signedWeth = getNewContract(signer, "WETH9");
+  const signedWeth = getNewDeployedContract(signer, "WETH9");
   return signedWeth;
 }
 
 async function getSpCoinContract(signer:any) {
-  const signedWeth = getNewContract(signer, "SPCoin");
+  const signedWeth = getNewDeployedContract(signer, "SPCoin");
   return signedWeth;
 }
 
-async function getNewContract(signer:any, symbol:string) {
+async function getNewDeployedContract(signer:any, symbol:string) {
   await deployContract(symbol);
   const signedWeth = getDeployedContract(signer, symbol);
   return signedWeth;
@@ -67,7 +67,7 @@ export {  deployContract,
           deployWETH9Contract,
           getDeployedArtifactsAbiAddress,
           getDeployedContract,
-          getNewContract,
+          getNewDeployedContract,
           getSpCoinContract,
           getWeth9Contract
   }
