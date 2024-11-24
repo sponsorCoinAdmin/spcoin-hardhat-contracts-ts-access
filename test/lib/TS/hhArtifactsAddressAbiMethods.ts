@@ -4,8 +4,8 @@ import fs from 'fs';
 let ethers:any = hre.ethers;
 
 // load ABI from build artifacts
-export async function getDeployedArtifactsAbi(symbol:string){
-    console.log(`EXECUTING: getDeployedArtifactsAbi(${symbol})`)
+export async function getDeployedArtifactsAbiAddress(symbol:string){
+    console.log(`EXECUTING: getDeployedArtifactsAbiAddress(${symbol})`)
     let contractDeployed = await deployContract(symbol);
     const address = contractDeployed.address;
     // console.log(`contractDeployed.address = ${contractDeployed.address}`)
@@ -19,12 +19,24 @@ export async function getDeployedArtifactsAbi(symbol:string){
     return { address, abi };
 }
 
-export async function geWethContract(signer:any) {
-    let WETH9ContractDeployed = await deployWETH9Contract();
-    const weth9_Address = WETH9ContractDeployed.address;
-    const weth9ABI = await getDeployedArtifactsAbi("WETH9");
-    const signedWeth = new ethers.Contract(weth9_Address, weth9ABI, signer);
-  return signedWeth;
-  }
+export async function getWeth9Contract(signer:any) {
+    const signedWeth = getNewContract(signer, "WETH9");
+    return signedWeth;
+}
   
+export async function getSpCoinContract(signer:any) {
+    const signedWeth = getNewContract(signer, "SPCoin");
+    return signedWeth;
+}
   
+export async function getNewContract(signer:any, symbol:string) {
+    await deployContract(symbol);
+    const signedWeth = getDeployedContract(signer, symbol);
+    return signedWeth;
+}
+
+export async function getDeployedContract(signer:any, symbol:string) {
+    const { address, abi } = await getDeployedArtifactsAbiAddress(symbol);
+    const signedWeth = new ethers.Contract(address, abi, signer);
+    return signedWeth;
+}

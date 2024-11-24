@@ -2,7 +2,7 @@ import { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, yea
 import { SpCoinClassMethods } from "../../spcoin-access-modules/spCoin_JS_Methods"; 
 import { deploySpCoinContract } from "../lib/TS/deployContract";
 import { HHAccountRateMethods } from "../lib/TS/hhAccountRateMethods";
-
+import { getDeployedArtifactsAbiAddress } from "../lib/TS/hhArtifactsAddressAbiMethods";;
 
 let spCoinContractDeployed;
 let spCoinClassMethods;
@@ -19,20 +19,23 @@ let BURN_ACCOUNT:any;
 
 describe("spCoinContract", function () {
   beforeEach(async () => {
-    spCoinContractDeployed = await deploySpCoinContract();
-    spCoinClassMethods = new SpCoinClassMethods(spCoinContractDeployed);
-    spCoinAddMethods = spCoinClassMethods.spCoinAddMethods;
-    spCoinRewardsMethods = spCoinClassMethods.spCoinRewardsMethods;
-    spCoinReadMethods = spCoinClassMethods.spCoinReadMethods;
-    spCoinLogger = spCoinClassMethods.spCoinLogger;
     hHAccountRateMethods = new HHAccountRateMethods();
     await hHAccountRateMethods.initHHAccounts()
-    hHAccountRateMethods.dump()
+    // hHAccountRateMethods.dump()
     SPONSOR_ACCOUNT_SIGNERS = hHAccountRateMethods.SPONSOR_ACCOUNT_SIGNERS;
     RECIPIENT_ACCOUNT_KEYS = hHAccountRateMethods.RECIPIENT_ACCOUNT_KEYS;
     SPONSOR_ACCOUNT_KEYS = hHAccountRateMethods.SPONSOR_ACCOUNT_KEYS;
     RECIPIENT_RATES = hHAccountRateMethods.RECIPIENT_RATES;
     BURN_ACCOUNT = hHAccountRateMethods.BURN_ACCOUNT;
+    const { abi:spCoinABI, address:spCoinAddress }= await getDeployedArtifactsAbiAddress("SPCoin");
+    const signer = SPONSOR_ACCOUNT_SIGNERS[0]
+
+    spCoinContractDeployed = await deploySpCoinContract();
+    spCoinClassMethods = new SpCoinClassMethods(spCoinContractDeployed, spCoinABI, spCoinAddress, signer);
+    spCoinAddMethods = spCoinClassMethods.spCoinAddMethods;
+    spCoinRewardsMethods = spCoinClassMethods.spCoinRewardsMethods;
+    spCoinReadMethods = spCoinClassMethods.spCoinReadMethods;
+    spCoinLogger = spCoinClassMethods.spCoinLogger;
   });
 
  it("2. <JAVA SCRIPT> VALIDATE ADD TRANSACTION RATES", async function () {
