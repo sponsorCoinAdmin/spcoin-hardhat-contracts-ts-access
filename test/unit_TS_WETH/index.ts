@@ -16,24 +16,28 @@ describe("WETH9 Contract Deployed", function () {
     await hHAccountRateMethods.initHHAccounts()
 });
 
-  xit("1. <TYPE SCRIPT> VALIDATE HARDHAT IS ACTIVE WITH ACCOUNTS", async function () {
+  it("1. <TYPE SCRIPT> VALIDATE HARDHAT IS ACTIVE WITH ACCOUNTS", async function () {
     hHAccountRateMethods.dump()
     console.log(`signer.address = ${signer.address}`)
 
     // Validate 20 HardHat Accounts created
     assert.equal(hHAccountRateMethods.SPONSOR_ACCOUNT_SIGNERS.length, 20);
     // Validate Active signer Account is Account 0
-    assert.equal(hHAccountRateMethods.SPONSOR_ACCOUNT_SIGNERS[0], WETH9ContractDeployed.signer.address.toLowerCase());
+
+    console.log(`hHAccountRateMethods.SPONSOR_ACCOUNT_SIGNERS[0].address = ${hHAccountRateMethods.SPONSOR_ACCOUNT_SIGNERS[0].address}`)
+    console.log(`WETH9ContractDeployed.signer.address.toLowerCase() = ${WETH9ContractDeployed.signer.address}`)
+    // Validate the Signer
+    assert.equal(hHAccountRateMethods.SPONSOR_ACCOUNT_SIGNERS[0].address, WETH9ContractDeployed.signer.address);
     // Validate the Last Account
-    assert.equal(hHAccountRateMethods.SPONSOR_ACCOUNT_SIGNERS[19], "0x8626f6940e2eb28930efb4cef49b2d1f2c9c1199");
+    assert.equal(hHAccountRateMethods.SPONSOR_ACCOUNT_KEYS[19], "0x8626f6940e2eb28930efb4cef49b2d1f2c9c1199");
   });
 
   // ToDo: BROKE FIX
-  xit("2. <TYPE SCRIPT> VALIDATE DEPLOYED CONTRACT BY GETTING SIGNER and TEST ACCOUNT[5] BALANCE_OF", async function () {
+  it("2. <TYPE SCRIPT> VALIDATE DEPLOYED CONTRACT BY GETTING SIGNER and TEST ACCOUNT[5] BALANCE_OF", async function () {
     const initialBalance:bigint = 10000000000000000000000n;
     const account5 = hHAccountRateMethods.SPONSOR_ACCOUNT_SIGNERS[5];
     const signerBalance:bigint = await ethers.provider.getBalance(signer.address);
-    const account5Balance:bigint = await ethers.provider.getBalance(account5);
+    const account5Balance:bigint = await ethers.provider.getBalance(account5.address);
 
     // All Accounts have been given an ETH Balance of 10000000000000000000000 except the signer account.
     // The signer account (account[0]) balance is less because gas was used for initial setup of hard hat.
@@ -44,7 +48,7 @@ describe("WETH9 Contract Deployed", function () {
     assert.equal(account5Balance, initialBalance);
   });
 
-  xit("3. <TYPE SCRIPT> Wrap ETH Using Deployed WETH Contract with Sinner account[0]", async function () {
+  it("3. <TYPE SCRIPT> Wrap ETH Using Deployed WETH Contract with Sinner account[0]", async function () {
     const signedWeth = WETH9ContractDeployed.connect(signer);
     const wrapEthAmount = ethers.utils.parseEther("2");
     const wrapWeiAmount = "5";
@@ -68,7 +72,7 @@ describe("WETH9 Contract Deployed", function () {
     console.log(`5. AFTER WRAP: Wrap Gas Fees = ${(beforeEthBalance - afterEthBalance) - signerWethBalance}`);
   });
 
-  xit("4. <TYPE SCRIPT> Wrap ETH Using Deployed WETH Address with Sinner account[0]", async function () {
+  it("4. <TYPE SCRIPT> Wrap ETH Using Deployed WETH Address with Sinner account[0]", async function () {
     const { abi:weth9ABI, address:weth9_Address }= await getDeployedArtifactsAbiAddress("WETH9");
     const signedWeth = new ethers.Contract(weth9_Address, weth9ABI, signer);
 
@@ -94,7 +98,7 @@ describe("WETH9 Contract Deployed", function () {
     console.log(`5. AFTER WRAP: Gas Fees = ${(beforeEthBalance - afterEthBalance) - signerWethBalance}`);
   });
 
-  xit("5. <TYPE SCRIPT> un-wrap ETH Using Deployed WETH Address with Sinner account[0]", async function () {
+  it("5. <TYPE SCRIPT> un-wrap ETH Using Deployed WETH Address with Sinner account[0]", async function () {
     const signedWeth = await getWeth9Contract(signer);
 
     const wrapEthAmount = ethers.utils.parseEther("2");
