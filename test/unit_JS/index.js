@@ -31,7 +31,7 @@ describe("spCoinContract", function () {
     const signer = SPONSOR_ACCOUNT_SIGNERS[0]
 
     spCoinContractDeployed = await deploySpCoinContract();
-    spCoinClassMethods = new SpCoinClassMethods(spCoinContractDeployed, spCoinABI, spCoinAddress, signer);
+    spCoinClassMethods = new SpCoinClassMethods(spCoinABI, spCoinAddress, signer);
     spCoinAddMethods = spCoinClassMethods.spCoinAddMethods;
     spCoinRewardsMethods = spCoinClassMethods.spCoinRewardsMethods;
     spCoinReadMethods = spCoinClassMethods.spCoinReadMethods;
