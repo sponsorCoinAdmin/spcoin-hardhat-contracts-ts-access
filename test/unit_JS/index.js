@@ -1,7 +1,7 @@
 import hre from "hardhat";
 import { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year, month, millennium } from "../../spcoin-access-modules/lib/utils/dateTime"; 
-// import { SpCoinClassMethods } from "../../spcoin-access-modules/spCoin_JS_Methods"; 
-import { SpCoinClassMethods } from "@sponsorcoin/spcoin-access-modules/spCoin_JS_Methods"; 
+import { SpCoinClassMethods } from "../../spcoin-access-modules/spCoin_JS_Methods"; 
+// import { SpCoinClassMethods } from "@sponsorcoin/spcoin-access-modules/spCoin_JS_Methods"; 
 import { deploySpCoinContract, getDeployedArtifactsAbiAddress } from "../lib/JS/deployContract";
 import { HHAccountRateMethods } from "../lib/JS/hhAccountRateMethods";
 
