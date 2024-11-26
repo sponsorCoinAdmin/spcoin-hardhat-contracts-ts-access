@@ -1,3 +1,4 @@
+import { hre } from 'hardhat';
 import { assert } from 'chai';
 import { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year, month, millennium } from "../../spcoin-access-modules/lib/utils/dateTime"; 
 import { SpCoinClassMethods } from "../../spcoin-access-modules/spCoin_JS_Methods"; 
@@ -31,7 +32,7 @@ describe("spCoinContract", function () {
     const signer = SPONSOR_ACCOUNT_SIGNERS[0]
 
     spCoinContractDeployed = await deploySpCoinContract();
-    spCoinClassMethods = new SpCoinClassMethods(spCoinABI, spCoinAddress, signer);
+    spCoinClassMethods = new SpCoinClassMethods(hre.ethers, spCoinABI, spCoinAddress, signer);
     spCoinAddMethods = spCoinClassMethods.spCoinAddMethods;
     spCoinRewardsMethods = spCoinClassMethods.spCoinRewardsMethods;
     spCoinReadMethods = spCoinClassMethods.spCoinReadMethods;
