@@ -1,7 +1,8 @@
-import hre from "hardhat";
+import { hre } from 'hardhat';
+import { assert } from 'chai';
 import { dateInMilliseconds, dateInSeconds, second, minute, hour, day, week, year, month, millennium } from "../../spcoin-access-modules/lib/utils/dateTime"; 
-import { SpCoinClassMethods } from "../../spcoin-access-modules/spCoin_JS_Methods"; 
-// import { SpCoinClassMethods } from "@sponsorcoin/spcoin-access-modules/spCoin_JS_Methods"; 
+import { SpCoinClassMethods } from "@sponsorcoin/spcoin-access-modules/spCoin_JS_Methods"; 
+// import { SpCoinClassMethods } from "../../spcoin-access-modules/spCoin_JS_Methods"; 
 import { deploySpCoinContract, getDeployedArtifactsAbiAddress } from "../lib/JS/deployContract";
 import { HHAccountRateMethods } from "../lib/JS/hhAccountRateMethods";
 
@@ -17,7 +18,6 @@ let SPONSOR_ACCOUNT_KEYS;
 let RECIPIENT_ACCOUNT_KEYS; 
 let RECIPIENT_RATES;
 let BURN_ACCOUNT;
-let ethers = hre.ethers;
 
 describe("spCoinContract", function () {
   beforeEach(async () => {
